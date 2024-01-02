@@ -1,0 +1,265 @@
+body {
+  background-color: black;
+  padding: 1em;
+}
+
+.board {
+  display: table;
+  background-color: #333;
+  border: 2px solid #333;
+}
+
+.board .os {
+  display: block;
+  width: 54px;
+  height: 250px;
+  position: absolute;
+  background-color: #222;
+}
+
+.row {
+  display: table-row;
+}
+
+.row .string {
+  display: block;
+  background-color: transparent;
+  height: 1px; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #aaa;
+}
+
+.row .string > div {
+  display: table-cell;
+  background-color: transparent;
+  position: relative;
+  top: -20px
+}
+
+.row .string > div {
+  border-right: 1px solid #666;
+}
+
+.row .string > div:first-child,
+.row .num:first-child {
+  border-width: 4px;
+}
+
+.row hr {
+  z-index: 1;
+  top: 24px;
+  height: 1px;
+  background-color: #aaa;
+  border: none;
+}
+
+.row > div .note {
+  display: inline-block;
+}
+
+.fret {
+  position: absolute;
+  z-index: 0;
+}
+
+.fret div {
+  background-color: gray;
+  width: 1px;
+  height: 252px;
+  position: relative;
+  display: inline-block;
+  margin-left: 51.9px;
+}
+
+.fret .f0 {
+  width: 6px;
+}
+
+.board.highlight .note {
+  opacity: 0.25;
+}
+
+.board.highlight .note.highlight {
+  opacity: 1;
+}
+
+.board.practice .note {
+  border: solid 2px #666;
+  background-color: #555;
+  color: transparent;
+}
+
+.board.practice .note {
+  opacity: 0;
+}
+
+.board.practice .note.highlight {
+  opacity: 1;
+}
+
+.num {
+  color: #aaa;
+  border: solid 2px;
+  border-color: transparent;
+  /* background-color: white; */
+}
+
+.row .num {
+  width: 30.7px;
+  height: 0.5em;
+  font-size: medium;
+}
+
+.board.hidden .note.A,
+.board.hidden .note.B,
+.board.hidden .note.C,
+.board.hidden .note.D,
+.board.hidden .note.E,
+.board.hidden .note.F,
+.board.hidden .note.G {
+  border: solid 2px #666;
+  background-color: #555;
+  color: transparent;
+}
+
+.note, 
+.board.hidden .note.reveal
+{
+  border: solid 2px #555;
+  background-color: #444;
+  color: #ccc;
+}
+
+.note, .num {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 26px;
+  font-family: monospace;
+  margin: 4px 12px;
+}
+
+.odd,
+.note.A,
+.note.B,
+.note.F,
+.note.G,
+.practice .note {
+  -moz-border-radius: 50px/50px;
+  -webkit-border-radius: 50px 50px;
+  border-radius: 50px/50px;
+}
+
+.note.A,
+.board.hidden .note.reveal.A {
+  background-color: orangered;
+  color: black;
+}
+.note.B,
+.board.hidden .note.reveal.B {
+  background-color: green;
+}
+.note.C,
+.board.hidden .note.reveal.C {
+  background-color: brown;
+}
+.note.D,
+.board.hidden .note.reveal.D {
+  background-color: darkred;
+}
+.note.E,
+.board.hidden .note.reveal.E {
+  background-color: darkkhaki;
+  color: black;
+}
+.note.F,
+.board.hidden .note.reveal.F {
+  background-color: darkblue;
+}
+.note.G,
+.board.hidden .note.reveal.G {
+  background-color: darkmagenta;
+}
+
+.note.A:after {
+  content: "A";
+}
+
+.note.B:after {
+  content: "B";
+}
+
+.note.C:after {
+  content: "C";
+}
+
+.note.D:after {
+  content: "D";
+}
+
+.note.E:after {
+  content: "E";
+}
+
+.note.F:after {
+  content: "F";
+}
+
+.note.G:after {
+  content: "G";
+}
+
+
+.result.hidden,
+.result .note.hidden,
+.result .timer-group.hidden {
+  opacity: 0;
+}
+
+.note.answered,
+.note.expected {
+  -moz-border-radius: 50px/50px;
+  -webkit-border-radius: 50px 50px;
+  border-radius: 50px/50px;
+  /* border-color: #aa0000; */
+  border-width: 6px;
+  position: relative;
+}
+
+
+.note.answered:after {
+  position: absolute;
+  top: -6px;
+  left: -20px;
+  content: "";
+  font-size: 70px;
+  color: #aa0000;
+  opacity: 0.6;
+  line-height: 50px;
+  text-align: center;
+}
+
+.note.answered.wrong:after {
+  content: "\274c";
+}
+
+.note.answered.correct:after {
+  top: -6px;
+  left: -24px;
+  content: "\2B55";
+  font-size: 80px;
+  color: #33bb33;
+  opacity: 1;
+}
+
+.note.expected {
+  border-color: #33bb33;
+}
+
+.answer {
+  color: white;
+  font-size: x-large;
+}
