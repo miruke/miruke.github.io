@@ -2,6 +2,11 @@ body {
   background-color: black;
 }
 
+.marking {
+  display: table;
+  background-color: #e22;
+}
+
 .board {
   display: table;
   background-color: #333;
@@ -34,7 +39,9 @@ body {
   /* border-bottom: 1px solid #aaa; */
 }
 
-.row .string > div {
+.row .string > div 
+, .row.num > div.num
+{
   display: table-cell;
   background-color: transparent;
   position: relative;
@@ -42,10 +49,39 @@ body {
   border-right: 1px solid #666;
 }
 
-.row .string > div:first-child,
-.row .num:first-child {
+.marking {
+  border: 2px solid #fff;
+}
+.marking .row div.num {
+  border-right: 16x solid #fff;
+}
+
+.row.num > div 
+{
+  display: table-cell;
+  background-color: transparent;
+  /* position: relative; */
+  /* top: -17px; */
+  /* border-right: 1px solid #666; */
+}
+
+.row .string > div:first-child
+,.row.num > div:first-child 
+{
   border-width: 4px;
 }
+
+.row.num > div {
+  padding: 0;
+  margin: 0;
+}
+.row.num > div:first-child 
+{
+  border-left: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
 
 .row hr {
   z-index: 1;
@@ -106,12 +142,6 @@ body {
   /* background-color: white; */
 }
 
-.row .num {
-  width: 30.7px;
-  height: 0.5em;
-  font-size: medium;
-}
-
 .board.hidden .note.A,
 .board.hidden .note.B,
 .board.hidden .note.C,
@@ -143,6 +173,16 @@ body {
   font-family: monospace, 'Menlo-Regular';
   margin: 6px 12px;
   /* border: none; */
+}
+
+.row .num {
+  /* width: 30.7px; */
+  /* height: 0.5em; */
+  font-size: medium;
+  /* border-right: 1px solid #ccc; */
+  background-color: #333;
+  /* margin: 6px 12px; */
+  /* border:none; */
 }
 
 .odd,
