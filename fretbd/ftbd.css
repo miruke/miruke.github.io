@@ -1,6 +1,5 @@
 body {
   background-color: black;
-  padding: 1em;
 }
 
 .board {
@@ -9,10 +8,10 @@ body {
   border: 2px solid #333;
 }
 
-.board .os {
+.board .open-string {
   display: block;
-  width: 54px;
-  height: 250px;
+  width: 45px;
+  height: 204px;
   position: absolute;
   background-color: #222;
 }
@@ -25,8 +24,8 @@ body {
   display: block;
   background-color: transparent;
   height: 1px; 
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   border-bottom: 1px solid #aaa;
 }
 
@@ -34,10 +33,7 @@ body {
   display: table-cell;
   background-color: transparent;
   position: relative;
-  top: -20px
-}
-
-.row .string > div {
+  top: -17px;
   border-right: 1px solid #666;
 }
 
@@ -132,12 +128,13 @@ body {
 }
 
 .note, .num {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   text-align: center;
   vertical-align: middle;
   display: inline-block;
-  font-size: 26px;
+  font-size: 24px;
+  line-height: 24px;
   font-family: monospace;
   margin: 4px 12px;
 }
