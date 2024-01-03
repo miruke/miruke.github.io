@@ -21,7 +21,7 @@ body {
 
 .frets .fret {
   display: table-cell;
-  border-right: 1px solid lightblue;
+  border-right: 1px solid #333;
   width: 33.2px;
   height: 254px
 }
