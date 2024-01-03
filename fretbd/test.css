@@ -10,7 +10,9 @@ body {
   z-index: 10;
   border: none;
   padding-left: 2px;
-  overflow: hidden;
+  /* overflow: hidden; */
+
+  border: 2px solid #333;
 }
 
 .frets {
@@ -48,7 +50,7 @@ body {
 }
 .strings .string {
   display: table-cell;
-  border-bottom: 1px solid red;
+  /* border-bottom: 1px solid red; */
   box-sizing: border-box;
   height: 40px;
 }
@@ -67,9 +69,17 @@ body {
   border-width: 4px;
 }
 
-.row > div {
+.board .row > div {
   display: table-cell;
   padding: 4px 12px;
+  background-image: url(1x1.png);
+  background-repeat: repeat-x;
+  background-position-y: center;
+  /* background-color: transparent; */
+  /* background-image: linear-gradient(180deg, 
+  rgba(0,0,0,0) calc(50% - 1px), 
+  rgba(192,192,192,1) calc(50%), 
+  rgba(0,0,0,0) calc(50% + 1px) */
 }
 
 .board.highlight .note {
