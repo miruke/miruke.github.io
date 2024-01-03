@@ -32,33 +32,24 @@ body {
   z-index: 2;
   width: 990px;
   border: 2px solid #333;
+  box-sizing: border-box;
 }
 
 .frets .row,
 .strings .row {
   display: table-row;
-  /* padding-top: -20px; */
 }
 .strings .row:first-child .string {
   height: 21px;
 }
 .strings .row:last-child .string {
-  /* height: 80px; */
   height: 21px;
-  /* padding-bottom: 21px; */
-  /* margin-bottom: 21px; */
   border:none;
 }
-
-
 .strings .string {
   display: table-cell;
-  /* display: table-row; */
   border-bottom: 1px solid red;
-  /* margin-top: -20px;
-  padding-top: -20px; */
   height: 42px;
-  /* width: 400px; */
 }
 
 .row {
