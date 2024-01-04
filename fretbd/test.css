@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/andale-mono');
+@import url('https://fonts.cdnfonts.com/css/maria-2');
 
 body {
   background-color: black;
@@ -9,12 +9,9 @@ body {
   position: absolute;
   display: table;
   background-color: #222; 
-  /* transparent; */
   z-index: 10;
   border: none;
   padding-left: 2px;
-  /* overflow: hidden; */
-
   border: 2px solid #333;
 }
 
@@ -53,7 +50,6 @@ body {
 }
 .strings .string {
   display: table-cell;
-  /* border-bottom: 1px solid red; */
   box-sizing: border-box;
   height: 40px;
 }
@@ -64,7 +60,6 @@ body {
 }
 
 .board .row:first-child > div {
-  /* margin-top: 16px; */
   padding-top: 6px;
 }
 
@@ -79,11 +74,6 @@ body {
   background-repeat: repeat-x;
   background-position-y: center;
   border-right: 1px solid #333;
-  /* background-color: transparent; */
-  /* background-image: linear-gradient(180deg, 
-  rgba(0,0,0,0) calc(50% - 1px), 
-  rgba(192,192,192,1) calc(50%), 
-  rgba(0,0,0,0) calc(50% + 1px) */
 }
 
 .board.highlight .note {
@@ -112,7 +102,6 @@ body {
   color: #aaa;
   border: solid 2px;
   border-color: transparent;
-  /* background-color: white; */
 }
 
 .row .num {
@@ -148,15 +137,11 @@ body {
   height: 30px;
   text-align: center;
   vertical-align: middle;
-  /* display: inline-block; */
   display: table-cell;
   font-size: 26px;
-  /* font-family: monospace; */
-  font-family: 'Andale Mono', monospace;
+  font-family: 'Maria', monospace;
+  font-weight: 1000;
   margin: 4px 12px;
-
-  /* border-spacing: 12px; */
-  
 }
 
 .odd,
