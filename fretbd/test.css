@@ -5,8 +5,11 @@ body {
   padding: 1em;
 }
 
-.board {
+.board-group {
   position: absolute;
+  z-index: 10;
+}
+.board {
   display: table;
   background-color: #222; 
   z-index: 10;
@@ -15,26 +18,45 @@ body {
   border: 2px solid #333;
 }
 
-.frets {
+.marking {
   display: table;
-  position: absolute;
-  z-index: 1;
+  width: 100%;
+  background-color: transparent;
 }
-
-.frets .fret {
+.marking .row {
+  width: 100%;
+  display: table-row;
+}
+.marking .row div
+{
   display: table-cell;
-  border-right: 1px solid #333;
-  width: 33.2px;
-  height: 254px
+  background-color: transparent;
+  color: #999;
+  width: 54px;
+  /* height: 20px; */
+  line-height: 16px;
+  /* border-right: 1px solid gray; */
+  text-align: center;
+  vertical-align: middle;
+  /* background-color: #444; */
+}
+.marking .row div:first-child {
+  border-left: 5px solid transparent;
+}
+.marking .row div:after {
+  content: "\00a0";
 }
 
-.strings {
-  display: table;
-  position: absolute;
-  z-index: 2;
-  width: 990px;
-  border: 2px solid #333;
-  box-sizing: border-box;
+.marking .row .num:after {
+  content: "";
+}
+
+.marking .row .num.f3:after {
+  content: "\25cf";
+}
+
+.marking .row .num.f12:after {
+  content: "\25cf\25cf";
 }
 
 .frets .row,
@@ -74,6 +96,12 @@ body {
   background-repeat: repeat-x;
   background-position-y: center;
   border-right: 1px solid #333;
+}
+
+.board .row > div:first-child {
+  border-width: 4px;
+  border-color: #666;
+  background-color: #000;
 }
 
 .board.highlight .note {
@@ -131,16 +159,15 @@ body {
 }
 
 .note, .num {
-  display: block;
   width: 30px;
-  min-width: 30px;
   height: 30px;
+  min-width: 30px;
   text-align: center;
   vertical-align: middle;
   display: table-cell;
-  font-size: 26px;
+  font-size: 30px;
+  line-height: 30px;
   font-family: 'Maria', monospace;
-  font-weight: 1000;
   margin: 4px 12px;
 }
 
@@ -218,54 +245,96 @@ body {
   content: "G";
 }
 
+.timer-group {
+  /* position: relative; */
+  position: absolute;
+  display: inline-block;
+
+  top: 100px;
+  left: 440px;
+  padding-top: 300px;
+  opacity: 0.4;
+  z-index: 13;
+}
 
 .result.hidden,
 .result .note.hidden,
-.result .timer-group.hidden {
+.result .note-answer.hidden,
+.timer-group.hidden {
   opacity: 0;
 }
 
-.note.answered,
-.note.expected {
-  -moz-border-radius: 50px/50px;
+.note-answer {
+  display: inline-block;
+  /* width: 80px; */
+  /* padding-right: 0; */
+  /* margin-right: -70px; */
+  padding-left: 30px;
+  margin-right: -70px;
+  /* -moz-border-radius: 50px/50px;
   -webkit-border-radius: 50px 50px;
-  border-radius: 50px/50px;
-  /* border-color: #aa0000; */
-  border-width: 6px;
-  position: relative;
+  border-radius: 50px/50px; */
 }
 
-
-.note.answered:after {
-  position: absolute;
+.note-answer:after {
+  /* position: absolute; */
+  position: relative;
+  /* padding-left: -20px; */
+  left: -40px; 
   top: -6px;
-  left: -20px;
   content: "";
   font-size: 70px;
   color: #aa0000;
   opacity: 0.6;
-  line-height: 50px;
-  text-align: center;
 }
-
-.note.answered.wrong:after {
+.note-answer.wrong:after {
+  font-size: 80px;
   content: "\274c";
+  top: 28px;
+  left: -75px;
 }
 
-.note.answered.correct:after {
-  top: -6px;
-  left: -24px;
+.note-answer.correct:after {
+  top: 26px;
+  left: -76px;
   content: "\2B55";
   font-size: 80px;
   color: #33bb33;
   opacity: 1;
 }
 
+
+.note.answered,
+.note.expected {
+  display: inline-block;
+  /* display: table-cell; */
+  -moz-border-radius: 50px/50px;
+  -webkit-border-radius: 50px 50px;
+  border-radius: 50px/50px;
+  border-width: 6px;
+  width: 30px;
+  /* text-align: center; */
+}
+
+.note.answered.X:after {
+  content: "?"
+}
+
+/* .note.answered:after {
+  content: "A"
+} */
+
 .note.expected {
   border-color: #33bb33;
 }
 
+/* .status, */
 .answer {
   color: white;
   font-size: x-large;
+}
+
+.status {
+  font-family: 'Maria', monospace;
+  color: #999;
 }

@@ -3,177 +3,424 @@
 <head>
   <link href="https://fonts.cdnfonts.com/css/maria-2" rel="stylesheet">
   <link rel="stylesheet" href="test.css" />
+  <link rel="stylesheet" href="timer.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+  <script src="ftbd.js"></script>
 </head>
 
 <body>
-  <!-- <div class="strings">
-    <div class="row">
-      <div class="string"></div>
-    </div>
-    <div class="row">
-      <div class="string"></div>
-    </div>
-    <div class="row">
-      <div class="string"></div>
-    </div>
-    <div class="row">
-      <div class="string"></div>
-    </div>
-    <div class="row">
-      <div class="string"></div>
-    </div>
-    <div class="row">
-      <div class="string"></div>
-    </div>
-    <div class="row">
-      <div class="string"></div>
-    </div>
-  </div> -->
-  
-  <!-- <div class="frets">
-    <div class="row">
-      <div class="fret" id="fret0"></div>
-      <div class="fret" id="fret1"></div>
-      <div class="fret" id="fret2"></div>
-      <div class="fret" id="fret3"></div>
-      <div class="fret" id="fret4"></div>
-      <div class="fret" id="fret5"></div>
-      <div class="fret" id="fret6"></div>
-      <div class="fret" id="fret7"></div>
-      <div class="fret" id="fret8"></div>
-      <div class="fret" id="fret9"></div>
-      <div class="fret" id="freta"></div>
-      <div class="fret" id="fretb"></div>
-      <div class="fret" id="fretc"></div>
-      <div class="fret" id="fretd"></div>
-      <div class="fret" id="frete"></div>
-      <div class="fret" id="fretf"></div>
-    </div>
-  </div> -->
+  <div class="board-group">
 
-  <div id="board" class="board">
-    <div class="row">
-      <div><div id="n10" class="note E"></div></div>
-      <div><div id="n11" class="note F"></div></div>
-      <div><div id="n12" class="note"></div></div>
-      <div><div id="n13" class="note G"></div></div>
-      <div><div id="n14" class="note"></div></div>
-      <div><div id="n15" class="note A"></div></div>
-      <div><div id="n16" class="note"></div></div>
-      <div><div id="n17" class="note B"></div></div>
-      <div><div id="n18" class="note C"></div></div>
-      <div><div id="n19" class="note odd"></div></div>
-      <div><div id="n1a" class="note D"></div></div>
-      <div><div id="n1b" class="note odd"></div></div>
-      <div><div id="n1c" class="note E"></div></div>
-      <div><div id="n1d" class="note F"></div></div>
-      <div><div id="n1e" class="note"></div></div>
-      <div><div id="n1f" class="note G"></div></div>
-      <div><div id="n1g" class="note"></div></div>
+    <div id="board" class="board">
+      <div class="row">
+        <div>
+          <div id="n10" class="note E"></div>
+        </div>
+        <div>
+          <div id="n11" class="note F"></div>
+        </div>
+        <div>
+          <div id="n12" class="note"></div>
+        </div>
+        <div>
+          <div id="n13" class="note G"></div>
+        </div>
+        <div>
+          <div id="n14" class="note"></div>
+        </div>
+        <div>
+          <div id="n15" class="note A"></div>
+        </div>
+        <div>
+          <div id="n16" class="note"></div>
+        </div>
+        <div>
+          <div id="n17" class="note B"></div>
+        </div>
+        <div>
+          <div id="n18" class="note C"></div>
+        </div>
+        <div>
+          <div id="n19" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n1a" class="note D"></div>
+        </div>
+        <div>
+          <div id="n1b" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n1c" class="note E"></div>
+        </div>
+        <div>
+          <div id="n1d" class="note F"></div>
+        </div>
+        <div>
+          <div id="n1e" class="note"></div>
+        </div>
+        <div>
+          <div id="n1f" class="note G"></div>
+        </div>
+        <div>
+          <div id="n1g" class="note"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div id="n20" class="note B"></div>
+        </div>
+        <div>
+          <div id="n21" class="note C"></div>
+        </div>
+        <div>
+          <div id="n22" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n23" class="note D"></div>
+        </div>
+        <div>
+          <div id="n24" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n25" class="note E"></div>
+        </div>
+        <div>
+          <div id="n26" class="note F"></div>
+        </div>
+        <div>
+          <div id="n27" class="note"></div>
+        </div>
+        <div>
+          <div id="n28" class="note G"></div>
+        </div>
+        <div>
+          <div id="n29" class="note"></div>
+        </div>
+        <div>
+          <div id="n2a" class="note A"></div>
+        </div>
+        <div>
+          <div id="n2b" class="note"></div>
+        </div>
+        <div>
+          <div id="n2c" class="note B"></div>
+        </div>
+        <div>
+          <div id="n2d" class="note C"></div>
+        </div>
+        <div>
+          <div id="n2e" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n2f" class="note D"></div>
+        </div>
+        <div>
+          <div id="n2g" class="note odd"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div id="n30" class="note G"></div>
+        </div>
+        <div>
+          <div id="n31" class="note"></div>
+        </div>
+        <div>
+          <div id="n32" class="note A"></div>
+        </div>
+        <div>
+          <div id="n33" class="note"></div>
+        </div>
+        <div>
+          <div id="n34" class="note B"></div>
+        </div>
+        <div>
+          <div id="n35" class="note C"></div>
+        </div>
+        <div>
+          <div id="n36" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n37" class="note D"></div>
+        </div>
+        <div>
+          <div id="n38" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n39" class="note E"></div>
+        </div>
+        <div>
+          <div id="n3a" class="note F"></div>
+        </div>
+        <div>
+          <div id="n3b" class="note"></div>
+        </div>
+        <div>
+          <div id="n3c" class="note G"></div>
+        </div>
+        <div>
+          <div id="n3d" class="note"></div>
+        </div>
+        <div>
+          <div id="n3e" class="note A"></div>
+        </div>
+        <div>
+          <div id="n3f" class="note"></div>
+        </div>
+        <div>
+          <div id="n3g" class="note B"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div id="n40" class="note D"></div>
+        </div>
+        <div>
+          <div id="n41" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n42" class="note E"></div>
+        </div>
+        <div>
+          <div id="n43" class="note F"></div>
+        </div>
+        <div>
+          <div id="n44" class="note"></div>
+        </div>
+        <div>
+          <div id="n45" class="note G"></div>
+        </div>
+        <div>
+          <div id="n46" class="note"></div>
+        </div>
+        <div>
+          <div id="n47" class="note A"></div>
+        </div>
+        <div>
+          <div id="n48" class="note"></div>
+        </div>
+        <div>
+          <div id="n49" class="note B"></div>
+        </div>
+        <div>
+          <div id="n4a" class="note C"></div>
+        </div>
+        <div>
+          <div id="n4b" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n4c" class="note D"></div>
+        </div>
+        <div>
+          <div id="n4d" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n4e" class="note E"></div>
+        </div>
+        <div>
+          <div id="n4f" class="note F"></div>
+        </div>
+        <div>
+          <div id="n4g" class="note"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div id="n50" class="note A"></div>
+        </div>
+        <div>
+          <div id="n51" class="note"></div>
+        </div>
+        <div>
+          <div id="n52" class="note B"></div>
+        </div>
+        <div>
+          <div id="n53" class="note C"></div>
+        </div>
+        <div>
+          <div id="n54" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n55" class="note D"></div>
+        </div>
+        <div>
+          <div id="n56" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n57" class="note E"></div>
+        </div>
+        <div>
+          <div id="n58" class="note F"></div>
+        </div>
+        <div>
+          <div id="n59" class="note"></div>
+        </div>
+        <div>
+          <div id="n5a" class="note G"></div>
+        </div>
+        <div>
+          <div id="n5b" class="note"></div>
+        </div>
+        <div>
+          <div id="n5c" class="note A"></div>
+        </div>
+        <div>
+          <div id="n5d" class="note"></div>
+        </div>
+        <div>
+          <div id="n5e" class="note B"></div>
+        </div>
+        <div>
+          <div id="n5f" class="note C"></div>
+        </div>
+        <div>
+          <div id="n5g" class="note"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div id="n60" class="note E"></div>
+        </div>
+        <div>
+          <div id="n61" class="note F"></div>
+        </div>
+        <div>
+          <div id="n62" class="note"></div>
+        </div>
+        <div>
+          <div id="n63" class="note G"></div>
+        </div>
+        <div>
+          <div id="n64" class="note"></div>
+        </div>
+        <div>
+          <div id="n65" class="note A"></div>
+        </div>
+        <div>
+          <div id="n66" class="note"></div>
+        </div>
+        <div>
+          <div id="n67" class="note B"></div>
+        </div>
+        <div>
+          <div id="n68" class="note C"></div>
+        </div>
+        <div>
+          <div id="n69" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n6a" class="note D"></div>
+        </div>
+        <div>
+          <div id="n6b" class="note odd"></div>
+        </div>
+        <div>
+          <div id="n6c" class="note E"></div>
+        </div>
+        <div>
+          <div id="n6d" class="note F"></div>
+        </div>
+        <div>
+          <div id="n6e" class="note"></div>
+        </div>
+        <div>
+          <div id="n6f" class="note G"></div>
+        </div>
+        <div>
+          <div id="n6g" class="note"></div>
+        </div>
+      </div>
     </div>
 
-    <div class="row">
-      <div><div id="n20" class="note B"></div></div>
-      <div><div id="n21" class="note C"></div></div>
-      <div><div id="n22" class="note odd"></div></div>
-      <div><div id="n23" class="note D"></div></div>
-      <div><div id="n24" class="note odd"></div></div>
-      <div><div id="n25" class="note E"></div></div>
-      <div><div id="n26" class="note F"></div></div>
-      <div><div id="n27" class="note"></div></div>
-      <div><div id="n28" class="note G"></div></div>
-      <div><div id="n29" class="note"></div></div>
-      <div><div id="n2a" class="note A"></div></div>
-      <div><div id="n2b" class="note"></div></div>
-      <div><div id="n2c" class="note B"></div></div>
-      <div><div id="n2d" class="note C"></div></div>
-      <div><div id="n2e" class="note odd"></div></div>
-      <div><div id="n2f" class="note D"></div></div>
-      <div><div id="n2g" class="note odd"></div></div>
+    <div class="marking">
+      <div class="row">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+        <div></div>
+        <div class="num f12"></div>
+        <div></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+      </div>
+      <div class="row">
+        <div class="num">&nbsp;</div>
+        <div class="num">1</div>
+        <div class="num">2</div>
+        <div class="num">3</div>
+        <div class="num">4</div>
+        <div class="num">5</div>
+        <div class="num">6</div>
+        <div class="num">7</div>
+        <div class="num">8</div>
+        <div class="num">9</div>
+        <div class="num">10</div>
+        <div class="num">11</div>
+        <div class="num">12</div>
+        <div class="num">13</div>
+        <div class="num">14</div>
+        <div class="num">15</div>
+        <div class="num">16</div>
+      </div>
     </div>
 
-    <div class="row">
-      <div><div id="n30" class="note G"></div></div>
-      <div><div id="n31" class="note"></div></div>
-      <div><div id="n32" class="note A"></div></div>
-      <div><div id="n33" class="note"></div></div>
-      <div><div id="n34" class="note B"></div></div>
-      <div><div id="n35" class="note C"></div></div>
-      <div><div id="n36" class="note odd"></div></div>
-      <div><div id="n37" class="note D"></div></div>
-      <div><div id="n38" class="note odd"></div></div>
-      <div><div id="n39" class="note E"></div></div>
-      <div><div id="n3a" class="note F"></div></div>
-      <div><div id="n3b" class="note"></div></div>
-      <div><div id="n3c" class="note G"></div></div>
-      <div><div id="n3d" class="note"></div></div>
-      <div><div id="n3e" class="note A"></div></div>
-      <div><div id="n3f" class="note"></div></div>
-      <div><div id="n3g" class="note B"></div></div>
+    <div class="panel">
+      <button id="toggle">Toggle Quiz</button>
+      <button id="practice">Practice</button>
+      <!-- <br> -->
+      <!-- <button id="practice-non-stop">Non stop</button> -->
+      <span class="status" id="result-status">Press space to start practicing</span>
+
+      <br />
+      <div class="controls">
+        <button class="note" id="noteC">C</button>
+        <button class="note" id="noteD">D</button>
+        <button class="note" id="noteE">E</button>
+        <button class="note" id="noteF">F</button>
+        <button class="note" id="noteG">G</button>
+        <button class="note" id="noteA">A</button>
+        <button class="note" id="noteB">B</button>
+        <span class="answer" id="answer">??</span>
+      </div>
+      <div id="result" class="result">
+        <div class="note-answer wrong" id="result-note-answer">
+          <div class="note answered" id="result-answered"></div>
+        </div>
+
+        <div class="note expected" id="result-expected"></div>
+
+        
+      </div>
     </div>
 
-    <div class="row">
-      <div><div id="n40" class="note D"></div></div>
-      <div><div id="n41" class="note odd"></div></div>
-      <div><div id="n42" class="note E"></div></div>
-      <div><div id="n43" class="note F"></div></div>
-      <div><div id="n44" class="note"></div></div>
-      <div><div id="n45" class="note G"></div></div>
-      <div><div id="n46" class="note"></div></div>
-      <div><div id="n47" class="note A"></div></div>
-      <div><div id="n48" class="note"></div></div>
-      <div><div id="n49" class="note B"></div></div>
-      <div><div id="n4a" class="note C"></div></div>
-      <div><div id="n4b" class="note odd"></div></div>
-      <div><div id="n4c" class="note D"></div></div>
-      <div><div id="n4d" class="note odd"></div></div>
-      <div><div id="n4e" class="note E"></div></div>
-      <div><div id="n4f" class="note F"></div></div>
-      <div><div id="n4g" class="note"></div></div>
-    </div>
-
-    <div class="row">
-      <div><div id="n50" class="note A"></div></div>
-      <div><div id="n51" class="note"></div></div>
-      <div><div id="n52" class="note B"></div></div>
-      <div><div id="n53" class="note C"></div></div>
-      <div><div id="n54" class="note odd"></div></div>
-      <div><div id="n55" class="note D"></div></div>
-      <div><div id="n56" class="note odd"></div></div>
-      <div><div id="n57" class="note E"></div></div>
-      <div><div id="n58" class="note F"></div></div>
-      <div><div id="n59" class="note"></div></div>
-      <div><div id="n5a" class="note G"></div></div>
-      <div><div id="n5b" class="note"></div></div>
-      <div><div id="n5c" class="note A"></div></div>
-      <div><div id="n5d" class="note"></div></div>
-      <div><div id="n5e" class="note B"></div></div>
-      <div><div id="n5f" class="note C"></div></div>
-      <div><div id="n5g" class="note"></div></div>
-    </div>
-
-    <div class="row">
-      <div><div id="n60" class="note E"></div></div>
-      <div><div id="n61" class="note F"></div></div>
-      <div><div id="n62" class="note"></div></div>
-      <div><div id="n63" class="note G"></div></div>
-      <div><div id="n64" class="note"></div></div>
-      <div><div id="n65" class="note A"></div></div>
-      <div><div id="n66" class="note"></div></div>
-      <div><div id="n67" class="note B"></div></div>
-      <div><div id="n68" class="note C"></div></div>
-      <div><div id="n69" class="note odd"></div></div>
-      <div><div id="n6a" class="note D"></div></div>
-      <div><div id="n6b" class="note odd"></div></div>
-      <div><div id="n6c" class="note E"></div></div>
-      <div><div id="n6d" class="note F"></div></div>
-      <div><div id="n6e" class="note"></div></div>
-      <div><div id="n6f" class="note G"></div></div>
-      <div><div id="n6g" class="note"></div></div>
-    </div>
   </div>
 
+  <div id="result-timer" class="timer-group">
+    <div class="timer hour">
+    </div>
+    <div class="timer minute">
+      <div class="hand"><span></span></div>
+      <div class="hand"><span></span></div>
+    </div>
+    <div class="timer second">
+      <div class="hand"><span></span></div>
+      <div class="hand"><span></span></div>
+    </div>
+  </div>
 
 
 </body>

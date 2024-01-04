@@ -200,7 +200,7 @@ $(document).ready(function () {
 
   const enablePracticeMode = () => {
     mode = "practice";
-    $("#result-answered").text("?");
+    $("#result-answered").removeClass("A B C D E F G").addClass("X");
     $("#result-status").text("Choose a correct answer");
     return $("#board")
       .removeClass("hidden")
@@ -212,8 +212,15 @@ $(document).ready(function () {
   const removeResult = () => {
     console.log("clearing result");
     timers.showingResult = null;
-    $("#result-answered").removeClass("correct").removeClass("wrong").text("?");
-    $("#result-expected").text("").addClass("hidden");
+    $("#result-note-answer")
+      .removeClass("correct wrong")
+      .addClass("hidden");
+    $("#result-answered")
+      .removeClass("A B C D E F G")
+      .addClass("X");
+    $("#result-expected")
+      .removeClass("A B C D E F G")
+      .addClass("X hidden");
     $(".board .note").removeClass("highlight");
   };
 
@@ -223,20 +230,21 @@ $(document).ready(function () {
     $("#result-timer").addClass("hidden");
     // Show note in answer
     if (expected !== answered) {
-      $("#result-expected").removeClass("hidden").text(expected);
+      $("#result-expected").removeClass("hidden A B C D E F G").addClass(expected);
     }
     // Show right or wrong
-    $("#result-answered")
-      .text(answered)
-      .removeClass("hidden")
-      .removeClass("correct")
-      .removeClass("wrong")
+    $("#result-note-answer")
+      .removeClass("hidden correct wrong")
       .addClass(expected === answered ? "correct" : "wrong");
+    $("#result-answered")
+      .removeClass("A B C D E F G X")
+      .addClass(answered);
+    console.log("=>", expected === answered ? "correct" : "wrong")
 
     $("#result-status").text("Press space");
   };
 
-  $("#result-expected").text("").addClass("hidden");
+  $("#result-expected").addClass("X hidden");
   const practiceQuestion = () => {
     removeResult();
     enablePracticeMode();
@@ -276,7 +284,7 @@ $(document).ready(function () {
       highlightAllNotes(key);
     } else if (getMode() === "practice") {
       if (!timers.answering || !"ABCDEFG".includes(key)) return;
-      $("#result-answer").text(key);
+      $("#result-answered").addClass(key);
       console.log("key => answered", key);
       const result = {
         expected: practiceMode.note.name,
@@ -291,7 +299,7 @@ $(document).ready(function () {
 
   updateButtonText();
   removeResult();
-  $("#result-answered").addClass("hidden");
+  $("#result-note-answer").addClass("hidden");
   $("#result-timer").addClass("hidden");
 
   $("#answer").text(" ");
