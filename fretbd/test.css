@@ -345,5 +345,28 @@ body {
 
 .status {
   font-family: 'Maria', monospace;
-  color: var(--status-color)
+  color: var(--status-color);
+  display: inline-block;
+  width: 20em;
+  text-align: center;
+}
+
+.note-button {
+  background-color:var(--note-bg-color);
+  color: var(--note-color);
+  border: 2px solid var(--note-border-color);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Maria', monospace;
+  font-size: 24px;
+  line-height: 24px;
+  border-radius: 8px;
+  margin: 4px 8px;
+}
+.note-button:active {
+  background-color:orange;
+  color: #222;
+  border-color: #666;
 }

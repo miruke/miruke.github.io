@@ -184,9 +184,28 @@ $(document).ready(function () {
     $("#" + noteId).addClass("highlight");
   };
 
-  $("button.note").on("click", function (e) {
+  const answerNote = (note) => {
+    if (!timers.answering || !"ABCDEFG".includes(note)) return;
+    $("#result-answered").addClass(note);
+    console.log(" => answered", note);
+    const result = {
+      expected: practiceMode.note.name,
+      answered: note,
+      noteId: practiceMode.note.id,
+    };
+    showResult(result);
+    clearTimeout(timers.answering);
+    timers.answering = null;
+  };
+
+  $(".note-button").on("click", function (e) {
     const note = $(e.target).text();
-    highlightAllNotes(note);
+    if (getMode() === "memory") {
+      highlightAllNotes(note);
+    } else if (getMode() === "practice") {
+      // Answer!
+      answerNote(note);
+    }
   });
 
   const practiceNote = () => {
@@ -212,15 +231,9 @@ $(document).ready(function () {
   const removeResult = () => {
     console.log("clearing result");
     timers.showingResult = null;
-    $("#result-note-answer")
-      .removeClass("correct wrong")
-      .addClass("hidden");
-    $("#result-answered")
-      .removeClass("A B C D E F G")
-      .addClass("X");
-    $("#result-expected")
-      .removeClass("A B C D E F G")
-      .addClass("X hidden");
+    $("#result-note-answer").removeClass("correct wrong").addClass("hidden");
+    $("#result-answered").removeClass("A B C D E F G").addClass("X");
+    $("#result-expected").removeClass("A B C D E F G").addClass("X hidden");
     $(".board .note").removeClass("highlight");
   };
 
@@ -230,16 +243,16 @@ $(document).ready(function () {
     $("#result-timer").addClass("hidden");
     // Show note in answer
     if (expected !== answered) {
-      $("#result-expected").removeClass("hidden A B C D E F G").addClass(expected);
+      $("#result-expected")
+        .removeClass("hidden A B C D E F G")
+        .addClass(expected);
     }
     // Show right or wrong
     $("#result-note-answer")
       .removeClass("hidden correct wrong")
       .addClass(expected === answered ? "correct" : "wrong");
-    $("#result-answered")
-      .removeClass("A B C D E F G X")
-      .addClass(answered);
-    console.log("=>", expected === answered ? "correct" : "wrong")
+    $("#result-answered").removeClass("A B C D E F G X").addClass(answered);
+    console.log("=>", expected === answered ? "correct" : "wrong");
 
     $("#result-status").text("Press space");
   };
@@ -283,17 +296,18 @@ $(document).ready(function () {
       if (!"ABCDEFG".includes(key)) return;
       highlightAllNotes(key);
     } else if (getMode() === "practice") {
-      if (!timers.answering || !"ABCDEFG".includes(key)) return;
-      $("#result-answered").addClass(key);
-      console.log("key => answered", key);
-      const result = {
-        expected: practiceMode.note.name,
-        answered: key,
-        noteId: practiceMode.note.id,
-      };
-      showResult(result);
-      clearTimeout(timers.answering);
-      timers.answering = null;
+      answerNote(key);
+      // if (!timers.answering || !"ABCDEFG".includes(key)) return;
+      // $("#result-answered").addClass(key);
+      // console.log("key => answered", key);
+      // const result = {
+      //   expected: practiceMode.note.name,
+      //   answered: key,
+      //   noteId: practiceMode.note.id,
+      // };
+      // showResult(result);
+      // clearTimeout(timers.answering);
+      // timers.answering = null;
     }
   });
 
