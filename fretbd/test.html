@@ -1,11 +1,15 @@
 <html>
 
 <head>
-  <link href="https://fonts.cdnfonts.com/css/maria-2" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/maria-2">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   <link rel="stylesheet" href="test.css" />
   <link rel="stylesheet" href="timer.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
   <script src="ftbd.js"></script>
+
 </head>
 
 <body>
@@ -386,27 +390,52 @@
       <span class="status" id="result-status">Press space to start practicing</span>
 
       <br />
+
       <div class="controls">
-        <button class="note-button" id="noteC">C</button>
-        <button class="note-button" id="noteD">D</button>
-        <button class="note-button" id="noteE">E</button>
-        <button class="note-button" id="noteF">F</button>
-        <button class="note-button" id="noteG">G</button>
-        <button class="note-button" id="noteA">A</button>
-        <button class="note-button" id="noteB">B</button>
-        <span class="answer" id="answer">??</span>
-      </div>
-      <div id="result" class="result">
-        <div class="note-answer wrong" id="result-note-answer">
-          <div class="note answered" id="result-answered"></div>
-        </div>
-
-        <div class="note expected" id="result-expected"></div>
-
-        
+        <div class="note-answer-btn">
+          <button class="note-button" id="noteC">C</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+          </div>
+          <div class="note-answer-btn">
+          <button class="note-button" id="noteD">D</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+          </div>
+          <div class="note-answer-btn">
+          <button class="note-button" id="noteE">E</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+          </div>
+          <div class="note-answer-btn">
+          <button class="note-button" id="noteF">F</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+          </div>
+          <div class="note-answer-btn">
+          <button class="note-button" id="noteG">G</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+          </div>
+          <div class="note-answer-btn">
+          <button class="note-button" id="noteA">A</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+          </div>
+          <div class="note-answer-btn">
+          <button class="note-button" id="noteB">B</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+          </div>
       </div>
     </div>
-
   </div>
 
   <div id="result-timer" class="timer-group">
