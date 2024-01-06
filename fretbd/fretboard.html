@@ -1,18 +1,18 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/maria-2">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="ftbd.css" />
   <link rel="stylesheet" href="timer.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
   <script src="ftbd.js"></script>
 </head>
 
-<body class="is-dark">
-
-  <div id="board" class="board">
-    <div class="open-string"></div>
-    <div class="row">
-      <div class="string" id="string1">
+<body>
+  <div class="board-group">
+    <div id="board" class="board">
+      <div class="row">
         <div>
           <div id="n10" class="note E"></div>
         </div>
@@ -65,10 +65,8 @@
           <div id="n1g" class="note"></div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="string" id="string2">
+      <div class="row">
         <div>
           <div id="n20" class="note B"></div>
         </div>
@@ -121,10 +119,8 @@
           <div id="n2g" class="note odd"></div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="string" id="string3">
+      <div class="row">
         <div>
           <div id="n30" class="note G"></div>
         </div>
@@ -177,10 +173,8 @@
           <div id="n3g" class="note B"></div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="string" id="string4">
+      <div class="row">
         <div>
           <div id="n40" class="note D"></div>
         </div>
@@ -233,10 +227,8 @@
           <div id="n4g" class="note"></div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="string" id="string5">
+      <div class="row">
         <div>
           <div id="n50" class="note A"></div>
         </div>
@@ -289,10 +281,8 @@
           <div id="n5g" class="note"></div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="string" id="string6">
+      <div class="row">
         <div>
           <div id="n60" class="note E"></div>
         </div>
@@ -346,124 +336,144 @@
         </div>
       </div>
     </div>
-  </div>
 
-
-
-  <div class="marking">
-    <div class="row">
-      <div class="num"></div>
-      <div class="num"></div>
-      <div class="num"></div>
-      <div class="num">&#9679;</div>
-      <div class="num"></div>
-      <div class="num">&#9679;</div>
-      <div class="num"></div>
-      <div class="num">&#9679;</div>
-      <div class="num"></div>
-      <div class="num">&#9679;</div>
-      <div class="num"></div>
-      <div class="num"></div>
-      <div class="num">&#9679;&#9679;</div>
-      <div class="num"></div>
-      <div class="num"></div>
-      <div class="num">&#9679;</div>
-      <div class="num"></div>
-    </div>
-
-    <div class="row num">
-      <div>
-        <div class="num"></div>
-      </div>
-      <div>
+    <div class="marking">
+      <div class="row">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+        <div></div>
+        <div class="num f12"></div>
+        <div></div>
+        <div></div>
+        <div class="num f3"></div>
+        <div></div>
+        </div>
+      <div class="row">
+        <div class="num">&nbsp;</div>
         <div class="num">1</div>
-      </div>
-      <div>
         <div class="num">2</div>
-      </div>
-      <div>
         <div class="num">3</div>
-      </div>
-      <div>
         <div class="num">4</div>
-      </div>
-      <div>
         <div class="num">5</div>
-      </div>
-      <div>
         <div class="num">6</div>
-      </div>
-      <div>
         <div class="num">7</div>
-      </div>
-      <div>
         <div class="num">8</div>
-      </div>
-      <div>
         <div class="num">9</div>
-      </div>
-      <div>
         <div class="num">10</div>
-      </div>
-      <div>
         <div class="num">11</div>
-      </div>
-      <div>
         <div class="num">12</div>
-      </div>
-      <div>
         <div class="num">13</div>
-      </div>
-      <div>
         <div class="num">14</div>
-      </div>
-      <div>
         <div class="num">15</div>
-      </div>
-      <div>
         <div class="num">16</div>
       </div>
     </div>
-  </div>
 
-  <button id="toggle">Toggle Quiz</button>
-  <button id="practice">Practice</button>
-  <br>
-  <button id="practice-non-stop">Non stop</button>
+    <div class="panel">
+      <button class="text-button" id="toggle">Toggle Quiz</button>
+      <button class="text-button" id="practice">Practice</button>
+      <span class="status" id="result-status">Press space to start practicing</span>
+      <br />
 
-
-  <br /><br />
-  <button class="note" id="noteC">C</button>
-  <button class="note" id="noteD">D</button>
-  <button class="note" id="noteE">E</button>
-  <button class="note" id="noteF">F</button>
-  <button class="note" id="noteG">G</button>
-  <button class="note" id="noteA">A</button>
-  <button class="note" id="noteB">B</button>
-
-
-  <br /><br />
-  <span class="answer" id="answer">??</span>
-
-  <div id="result" class="result">
-    <span class="note answered " id="result-answered"></span>
-    <span class="note expected" id="result-expected"></span>
-    <span id="result-status">Press space to start practicing</span>
-
-    <div id="result-timer" class="timer-group">
-      <div class="timer hour">
+      <div class="controls">
+        <div class="note-answer-btn">
+          <button class="note-button" id="noteC">C</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+        </div>
+        <div class="note-answer-btn">
+          <button class="note-button" id="noteD">D</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+        </div>
+        <div class="note-answer-btn">
+          <button class="note-button" id="noteE">E</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+        </div>
+        <div class="note-answer-btn">
+          <button class="note-button" id="noteF">F</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+        </div>
+        <div class="note-answer-btn">
+          <button class="note-button" id="noteG">G</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+        </div>
+        <div class="note-answer-btn">
+          <button class="note-button" id="noteA">A</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+        </div>
+        <div class="note-answer-btn">
+          <button class="note-button" id="noteB">B</button>
+          <i class="fa-solid fa-check correct"></i>
+          <i class="fa-solid fa-xmark wrong"></i>
+          <span></span>
+        </div>
+        <div class="gauge gp1" id="gauge">
+          <ul class="bars">
+            <li class="bar g-5">
+            <li class="bar g-4">
+            <li class="bar g-3">
+            <li class="bar g-2">
+            <li class="bar g-1">
+            <li class="bar gp1">
+            <li class="bar gp2">
+            <li class="bar gp3">
+            <li class="bar gp4">
+            <li class="bar gp5">
+          </ul>
+          <div class="emoji">
+            <i class="g-5 fa-regular fa-face-angry"></i>
+            <i class="g-4 fa-regular fa-face-dizzy"></i>
+            <i class="g-3 fa-regular fa-face-tired"></i>
+            <i class="g-2 fa-regular fa-face-frown-open"></i>
+            <i class="g-1 fa-regular fa-face-flushed"></i>
+            <i class="gp1 fa-regular fa-face-smile"></i>
+            <i class="gp2 fa-regular fa-face-grin-wide"></i>
+            <i class="gp3 fa-regular fa-face-grin-beam"></i>
+            <i class="gp4 fa-regular fa-face-grin-stars"></i>
+            <i class="gp5 fa-regular fa-face-grin-squint-tears"></i>
+          </div>
+          <span class="streak" id="streak"></span>
+          <div class="record-badge">
+            <i class="fa-solid fa-medal"></i>
+            <span>Record</span>
+          </div>
+        </div>
       </div>
-      <div class="timer minute">
-        <div class="hand"><span></span></div>
-        <div class="hand"><span></span></div>
       </div>
-      <div class="timer second">
-        <div class="hand"><span></span></div>
-        <div class="hand"><span></span></div>
       </div>
+
+  <div id="result-timer" class="timer-group">
+    <div class="timer hour">
+    </div>
+    <div class="timer minute">
+      <div class="hand"><span></span></div>
+      <div class="hand"><span></span></div>
+    </div>
+    <div class="timer second">
+      <div class="hand"><span></span></div>
+      <div class="hand"><span></span></div>
     </div>
   </div>
-
 
 </body>
 
