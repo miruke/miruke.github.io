@@ -111,7 +111,11 @@ const noteMap = {
 $(document).ready(function () {
   const noteList = Object.entries(noteMap);
   let mode = "memory";
-  const practiceMode = { note: { id: "", name: "" } };
+  const practiceMode = {
+    note: { id: "", name: "" },
+    streak: { win: 0, fail: 0 },
+    MIN_STREAK_RECORD: 3,
+  };
 
   const timers = {
     answering: null,
@@ -146,6 +150,21 @@ $(document).ready(function () {
     const note = noteList[Math.floor(Math.random() * noteList.length)];
     // const note = ['n10', 'E'];
     return { id: note[0], name: note[1] };
+  };
+
+  const levelClasses = "g-5 g-4 g-3 g-2 g-1 gp1 gp2 gp3 gp4 gp5";
+  const getLevel = (win, fail) => {
+    if (win > 10) return "gp5";
+    if (win > 6) return "gp4";
+    if (win > 3) return "gp3";
+    if (win > 2) return "gp2";
+    if (win > 1) return "gp1";
+    if (fail > 10) return "g-5";
+    if (fail > 6) return "g-4";
+    if (fail > 3) return "g-3";
+    if (fail > 2) return "g-2";
+    if (fail > 1) return "g-1";
+    return "gp1";
   };
 
   $(".note").on("click", function (e) {
@@ -217,7 +236,12 @@ $(document).ready(function () {
   };
 
   const enablePracticeMode = () => {
+    if (mode !== "practice") {
+      practiceMode.streak.win = 0;
+      practiceMode.streak.fail = 0;
+    }
     mode = "practice";
+    $("#gauge").show();
     $("#result-answered").removeClass("A B C D E F G").addClass("X");
     $("#result-status").text("Choose a correct answer");
     return $("#board")
@@ -245,9 +269,34 @@ $(document).ready(function () {
     $(".note-answer-btn").removeClass("correct wrong lite");
 
     // Show note in answer
-    if (!isCorrect) {
+    if (isCorrect) {
+      practiceMode.streak.win++;
+      practiceMode.streak.fail = 0;
+    } else {
+      practiceMode.streak.win = 0;
+      practiceMode.streak.fail++;
       $(`#note${expected}`).parent(".note-answer-btn").addClass("correct lite");
     }
+
+    const { win, fail } = practiceMode.streak;
+    $("#gauge").removeClass(levelClasses).addClass(getLevel(win, fail));
+    const streak = isCorrect
+      ? win > 1
+        ? "" + win
+        : ""
+      : fail > 1
+      ? "-" + fail
+      : "";
+    $("#streak").text(streak);
+    const winStreak =
+        localStorage.getItem("winStreak") || practiceMode.MIN_STREAK_RECORD,
+      isRecord = win > winStreak;
+    if (isRecord) {
+      // Update
+      localStorage.setItem("winStreak", win);
+    }
+    $("#gauge").toggleClass("record", isRecord);
+
     // Show right or wrong
     $(`#note${answered}`).parent(".note-answer-btn").addClass(status);
 
@@ -257,7 +306,16 @@ $(document).ready(function () {
       .removeClass("hidden correct wrong")
       .addClass(status);
 
-    console.log("=>", noteId, status);
+    console.log(
+      "=>",
+      noteId,
+      status,
+      " streak ",
+      win,
+      fail,
+      isRecord,
+      winStreak
+    );
 
     $("#result-status").text("Press space");
   };
@@ -269,6 +327,7 @@ $(document).ready(function () {
     const timerEl = $("#result-timer"),
       newTimerEl = timerEl.clone(true);
     timerEl.before(newTimerEl);
+    timerEl.remove();
     newTimerEl.removeClass("hidden");
 
     // timed question
@@ -306,8 +365,21 @@ $(document).ready(function () {
 
   updateButtonText();
   removeResult();
+
   $("#result-note-answer").addClass("hidden");
   $("#result-timer").addClass("hidden");
 
   $("#answer").text(" ");
+
+  let gauge = 0;
+  $("#gauge")
+    .hide()
+    .on("click", () => {
+      localStorage.setItem("winStreak", practiceMode.MIN_STREAK_RECORD);
+      //   const levels = levelClasses.split(" "),
+      //     level = levels[gauge % levels.length];
+      //   console.log(" = level ->", level);
+      //   $("#gauge").removeClass(levelClasses).addClass(level);
+      //   gauge++;
+    });
 });

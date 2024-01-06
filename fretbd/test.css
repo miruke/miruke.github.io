@@ -33,11 +33,24 @@
   --answer-correct-bg-color: rgba(51, 170, 51, .2);
   --answer-wrong-color: #994f00;
   --answer-wrong-bg-color: rgba(170, 51, 51, .2);
+
+  --g-1-color: #991010;
+  --g-2-color: #aa1d1d;
+  --g-3-color: #bb2222;
+  --g-4-color: #dd3333;
+  --g-5-color: #ff4040;
+
+  --gp1-color: #ff4040;
+  --gp2-color: #ff4040;
+  --gp3-color: #ff4040;
+  --gp4-color: #ff4040;
+  --gp5-color: #40b088;
 }
 
 body {
   background-color: black;
   padding: 1em;
+  font-family: 'Maria', monospace;
 }
 
 .board-group {
@@ -354,6 +367,19 @@ body {
   text-align: center;
 }
 
+.gauge,
+.controls {
+  display: inline-block;
+}
+
+.gauge {
+  vertical-align: top;
+}
+
+.gauge > * {
+  vertical-align: middle;
+}
+
 .text-button ,
 .note-button {
   background-color:var(--note-bg-color);
@@ -450,3 +476,248 @@ body {
   content: "wrong";
 }
 
+.gauge {
+  margin-top: 14px;
+}
+.gauge .bars {
+  display: inline-block;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.bar {
+  display: inline-block;
+  width: 5px;
+  height: 30px;
+  border: none;
+  background-color: #888;
+  margin: 0 2px;
+}
+
+.gp4 .bar.gp5,
+.gp3 .bar.gp5,
+.gp3 .bar.gp4,
+.gp2 .bar.gp5,
+.gp2 .bar.gp4,
+.gp2 .bar.gp3,
+.gp1 .bar.gp5,
+.gp1 .bar.gp4,
+.gp1 .bar.gp3,
+.gp1 .bar.gp2,
+.g-4 .bar.g-5,
+.g-3 .bar.g-5,
+.g-3 .bar.g-4,
+.g-2 .bar.g-5,
+.g-2 .bar.g-4,
+.g-2 .bar.g-3,
+.g-1 .bar.g-5,
+.g-1 .bar.g-4,
+.g-1 .bar.g-3,
+.g-1 .bar.g-2 {
+  opacity: 0.3;
+}
+
+.gp1 .bar.g-1,
+.gp1 .bar.g-2,
+.gp1 .bar.g-3,
+.gp1 .bar.g-4,
+.gp1 .bar.g-5,
+.gp2 .bar.g-1,
+.gp2 .bar.g-2,
+.gp2 .bar.g-3,
+.gp2 .bar.g-4,
+.gp2 .bar.g-5,
+.gp3 .bar.g-1,
+.gp3 .bar.g-2,
+.gp3 .bar.g-3,
+.gp3 .bar.g-4,
+.gp3 .bar.g-5,
+.gp4 .bar.g-1,
+.gp4 .bar.g-2,
+.gp4 .bar.g-3,
+.gp4 .bar.g-4,
+.gp4 .bar.g-5,
+.gp5 .bar.g-1,
+.gp5 .bar.g-2,
+.gp5 .bar.g-3,
+.gp5 .bar.g-4,
+.gp5 .bar.g-5,
+.g-1 .bar.gp1,
+.g-1 .bar.gp2,
+.g-1 .bar.gp3,
+.g-1 .bar.gp4,
+.g-1 .bar.gp5,
+.g-2 .bar.gp1,
+.g-2 .bar.gp2,
+.g-2 .bar.gp3,
+.g-2 .bar.gp4,
+.g-2 .bar.gp5,
+.g-3 .bar.gp1,
+.g-3 .bar.gp2,
+.g-3 .bar.gp3,
+.g-3 .bar.gp4,
+.g-3 .bar.gp5,
+.g-4 .bar.gp1,
+.g-4 .bar.gp2,
+.g-4 .bar.gp3,
+.g-4 .bar.gp4,
+.g-4 .bar.gp5,
+.g-5 .bar.gp1,
+.g-5 .bar.gp2,
+.g-5 .bar.gp3,
+.g-5 .bar.gp4,
+.g-5 .bar.gp5 {
+  display: none;
+}
+
+.gp5 .streak,
+.gp5 .emoji {
+  color: var(--gp5-color);
+}
+.gp5 .bar {
+  background-color: var(--gp5-color);
+}
+.gp4 .streak,
+.gp4 .emoji {
+  color: var(--gp4-color);
+}
+.gp4 .bar {
+  background-color: var(--gp4-color);
+}
+.gp3 .streak,
+.gp3 .emoji {
+  color: var(--gp3-color);
+}
+.gp3 .bar {
+  background-color: var(--gp3-color);
+}
+.gp2 .streak,
+.gp2 .emoji {
+  color: var(--gp2-color);
+}
+.gp2 .bar {
+  background-color: var(--gp2-color);
+}
+.gp1 .streak,
+.gp1 .emoji {
+  color: var(--gp1-color);
+}
+.gp1 .bar {
+  background-color: var(--gp1-color);
+}
+.g-5 .streak,
+.g-5 .emoji {
+  color: var(--g-5-color);
+}
+.g-5 .bar {
+  background-color:var(--g-5-color);
+}
+.g-4 .streak,
+.g-4 .emoji {
+  color: var(--g-4-color);
+}
+.g-4 .bar {
+  background-color: var(--g-4-color);
+}
+.g-3 .streak,
+.g-3 .emoji {
+  color: var(--g-3-color);
+}
+.g-3 .bar {
+  background-color: var(--g-3-color);
+}
+.g-2 .streak,
+.g-2 .emoji {
+  color: var(--g-2-color);
+}
+.g-2 .bar {
+  background-color: var(--g-2-color);
+}
+.g-1 .streak,
+.g-1 .emoji {
+  color: var(--g-1-color);
+}
+.g-1 .bar {
+  background-color: var(--g-1-color);
+}
+
+.bar.gp1,
+.bar.g-1 {
+  height: 4px;
+}
+.bar.gp2,
+.bar.g-2 {
+  height: 6px;
+}
+.bar.gp3,
+.bar.g-3 {
+  height: 10px;
+}
+.bar.gp4,
+.bar.g-4 {
+  height: 16px;
+}
+
+.emoji {
+  display: inline-block;
+}
+.emoji > * {
+  /* font: inherit; */
+  /* color: #888; */
+  font-size: 30px;
+  display: none;
+}
+
+.gp1 .emoji .gp1,
+.gp2 .emoji .gp2,
+.gp3 .emoji .gp3,
+.gp4 .emoji .gp4,
+.gp5 .emoji .gp5,
+.g-1 .emoji .g-1,
+.g-2 .emoji .g-2,
+.g-3 .emoji .g-3,
+.g-4 .emoji .g-4,
+.g-5 .emoji .g-5 {
+  display: inline-block;
+}
+
+.gauge.record .record-badge {
+  display: inline-block;
+}
+.record-badge {
+  /* display: inline-block; */
+  display: none;
+  vertical-align: middle;
+  color: red;
+  border: 1px solid red;
+  border-radius: 8px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 14px;
+  line-height: 20px;
+
+  animation-name: badge-color;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.record-badge > * {
+  display: inline-block;
+  padding: 0;
+}
+
+@keyframes badge-color {
+  0% {
+    color: #222;
+    border-color: #222;
+  }
+  50% {
+    color: red;
+    border-color: red;
+  }
+  100% {
+    color: #222;
+    border-color: #222;
+  }
+}
