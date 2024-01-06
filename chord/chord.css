@@ -1,0 +1,16 @@
+@import url('https://fonts.cdnfonts.com/css/maria-2');
+
+body {
+  background-color: black;
+  padding: 1em;
+  font-family: 'Maria', monospace;
+  color: white;
+}
+
+.mini-chord {
+  width: 400px;
+  height: 600px;
+  background-color: #222;
+  color: #ccc;
+  font-family: 'Maria', monospace;
+}
