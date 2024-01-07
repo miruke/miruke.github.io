@@ -15,13 +15,38 @@
       const ctx = canvas.getContext('2d');
       const url = "./svg/E_min.svg";
       const v = await Canvg.from(ctx, url);
+
+
       v.resize(300, 300);
       v.start();
 
-      const img = canvas.toDataURL('image/png');
-      document.getElementById('chord-img-L').src = img
-      document.getElementById('chord-img-M').src = img
-      document.getElementById('chord-img-S').src = img
+
+      const scaleImage = (ratio) => {
+        const imageData = ctx.getImageData(0, 0, 300, 300),
+          newCanvas = $("<canvas>")
+            .attr("width", imageData.width * ratio)
+            .attr("height", imageData.height * ratio)[0];
+        const newCtx = newCanvas.getContext("2d");
+        newCtx.scale(ratio, ratio);
+        newCtx.drawImage(canvas, 0, 0);
+        return newCanvas.toDataURL('image/png');
+      }
+
+      // medium
+      // const imageData = ctx.getImageData(0, 0, 300, 300),
+      //   newCanvas = $("<canvas>")
+      //     .attr("width", imageData.width / 2)
+      //     .attr("height", imageData.height / 2)[0];
+      // const newCtx = newCanvas.getContext("2d");
+      // newCtx.scale(.5, .5);
+      // newCtx.drawImage(canvas, 0, 0);
+
+      const bImage = scaleImage(0.8),
+        mImage = scaleImage(0.4),
+        sImage = scaleImage(0.2);
+      document.getElementById('chord-img-L').src = bImage;
+      document.getElementById('chord-img-M').src = mImage;
+      document.getElementById('chord-img-S').src = sImage;
 
       window.onbeforeunload = () => {
         v.stop();
