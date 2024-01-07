@@ -27,4 +27,24 @@ $(document).ready(function () {
       .append($("<a>").attr("href", url).html(text));
     console.log(text, last, scaleChange, accidentalChange);
   });
+
+  $("#copy-button").on("click", () => {
+    const chordNode = document.getElementById("chord");
+    html2canvas(chordNode).then(function (canvas) {
+      canvas.toBlob(function (blob) {
+        navigator.clipboard
+          .write([
+            new ClipboardItem(
+              Object.defineProperty({}, blob.type, {
+                value: blob,
+                enumerable: true,
+              })
+            ),
+          ])
+          .then(function () {
+            console.log("Copied to clipboard");
+          });
+      });
+    });
+  });
 });

@@ -4,6 +4,8 @@
 <head>
   <link rel="stylesheet" href="chordify.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.1/html2canvas.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="chordify.data.js"></script>
   <script src="chordify.js"></script>
   <script type="module">
@@ -14,6 +16,7 @@
       const ctx = canvas.getContext('2d');
       const url = "./svg/E_min.svg";
       const v = await Canvg.from(ctx, url);
+      v.resize(300, 300);
       v.start();
 
       window.onbeforeunload = () => {
@@ -25,7 +28,8 @@
 </head>
 
 <body>
-  <canvas class="chord"></canvas>
+  <canvas class="chord" id="chord"></canvas>
+  <button class="copy-icon" id="copy-button">Copy to Clipboard</button>
   <hr />
   <div id="links" class="links"></div>
 </body>
