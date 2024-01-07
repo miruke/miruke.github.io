@@ -1,0 +1,38 @@
+@import url('https://fonts.cdnfonts.com/css/maria-2');
+
+
+@font-face {
+  font-family: chordfont;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url(fonts/TheSans_chord_font.woff2) format("woff2");
+  src: url(fonts/TheSans_chord_font.woff) format("woff")
+}
+
+body {
+  background-color: black;
+  padding: 1em;
+  font-family: 'Maria', monospace;
+  color: white;
+}
+
+.chord {
+  width: 400px;
+  height: 600px;
+  background-color: #888;
+  color: #ccc;
+  font-family: 'Maria', monospace;
+}
+
+a {
+  color: white;
+  font-family: chordfont;
+  display: inline-block;
+}
+
+.chord {
+  width: 300px;
+  height: 300px;
+}
+

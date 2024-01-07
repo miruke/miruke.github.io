@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="chordify.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+  <script src="chordify.data.js"></script>
+  <script src="chordify.js"></script>
+  <script type="module">
+    import { Canvg } from 'https://cdn.skypack.dev/canvg@^4.0.0';
+
+    window.onload = async () => {
+      const canvas = document.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+      const url = "./svg/E_min.svg";
+      const v = await Canvg.from(ctx, url);
+      v.start();
+
+      window.onbeforeunload = () => {
+        v.stop();
+      };
+    };
+
+  </script>
+</head>
+
+<body>
+  <canvas class="chord"></canvas>
+  <hr />
+  <div id="links" class="links"></div>
+</body>
+
+</html>

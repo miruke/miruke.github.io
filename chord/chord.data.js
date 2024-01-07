@@ -21,7 +21,7 @@ const chords = [
   },
   {
     name: "Cmaj7",
-    string: "320003",
-    finger: "21---3",
+    string: "0320000",
+    finger: "-32---",
   },
 ];
