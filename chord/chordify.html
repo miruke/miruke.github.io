@@ -17,12 +17,12 @@
       const v = await Canvg.from(ctx, url);
 
 
-      v.resize(300, 300);
+      v.resize(400, 400);
       v.start();
 
 
       const scaleImage = (ratio) => {
-        const imageData = ctx.getImageData(0, 0, 300, 300),
+        const imageData = ctx.getImageData(0, 0, 400, 400),
           newCanvas = $("<canvas>")
             .attr("width", imageData.width * ratio)
             .attr("height", imageData.height * ratio)[0];
@@ -31,15 +31,6 @@
         newCtx.drawImage(canvas, 0, 0);
         return newCanvas.toDataURL('image/png');
       }
-
-      // medium
-      // const imageData = ctx.getImageData(0, 0, 300, 300),
-      //   newCanvas = $("<canvas>")
-      //     .attr("width", imageData.width / 2)
-      //     .attr("height", imageData.height / 2)[0];
-      // const newCtx = newCanvas.getContext("2d");
-      // newCtx.scale(.5, .5);
-      // newCtx.drawImage(canvas, 0, 0);
 
       const bImage = scaleImage(0.8),
         mImage = scaleImage(0.4),
