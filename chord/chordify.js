@@ -30,6 +30,7 @@ $(document).ready(function () {
 
   $("#copy-button").on("click", () => {
     const chordNode = document.getElementById("chord");
+    $("#status-text").text("Coping to clipboard...");
     html2canvas(chordNode).then(function (canvas) {
       canvas.toBlob(function (blob) {
         navigator.clipboard
@@ -41,9 +42,15 @@ $(document).ready(function () {
               })
             ),
           ])
-          .then(function () {
-            console.log("Copied to clipboard");
-          });
+          .then(
+            function () {
+              $("#status-text").text("Copied to clipboard");
+              console.log("Copied to clipboard");
+            },
+            (e) => {
+              $("#status-text").text(`Error: ${e}`);
+            }
+          );
       });
     });
   });
