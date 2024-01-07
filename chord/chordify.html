@@ -4,8 +4,7 @@
 <head>
   <link rel="stylesheet" href="chordify.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.1/html2canvas.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="chordify.data.js"></script>
   <script src="chordify.js"></script>
   <script type="module">
@@ -20,7 +19,9 @@
       v.start();
 
       const img = canvas.toDataURL('image/png');
-      document.getElementById('chord-img').src = img
+      document.getElementById('chord-img-L').src = img
+      document.getElementById('chord-img-M').src = img
+      document.getElementById('chord-img-S').src = img
 
       window.onbeforeunload = () => {
         v.stop();
@@ -32,7 +33,11 @@
 
 <body>
   <canvas class="chord" id="chord"></canvas>
-  <img id="chord-img" />
+  <div class="chord-images">
+    <img id="chord-img-L" class="image-large" />
+    <img id="chord-img-M" class="image-medium" />
+    <img id="chord-img-S" class="image-small" />
+  </div>
   <button class="copy-icon" id="copy-button">Copy to Clipboard</button>
   <span id="status-text"></span>
   <hr />

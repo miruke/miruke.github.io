@@ -20,7 +20,7 @@ body {
 .chord {
   /* width: 200px;
   height: 800px; */
-  background-color: #888;
+  /* background-color: #888; */
   color: #ccc;
   /* font-family: 'Maria', monospace; */
 }
@@ -31,4 +31,18 @@ a {
   display: inline-block;
 }
 
+.image-small {
+  width: 60px;
+  height: 60px;
+}
+
+.image-medium {
+  width: 100px;
+  height: 100px;
+}
+
+.image-large {
+  width: 200px;
+  height: 200px;
+}
 
