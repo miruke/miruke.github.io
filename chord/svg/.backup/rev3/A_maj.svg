@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <symbol id="a"><svg height="30" viewBox="0 0 30 30" width="30" xmlns="http://www.w3.org/2000/svg">
+            <path d="m21.275 23h-10.55v-2.025h4.375v-11.975l-4 1.35-.4-1.9 4.775-1.7h1.95v14.225h3.85z" fill="#333" />
+        </svg></symbol>
+    <symbol id="b"><svg height="30" viewBox="0 0 30 30" width="30" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" fill-rule="evenodd">
+                <circle cx="15" cy="15" fill="#333" r="15" />
+                <path d="m21.275 23h-10.55v-2.025h4.375v-11.975l-4 1.35-.4-1.9 4.775-1.7h1.95v14.225h3.85z" fill="#fff"
+                    fill-rule="nonzero" />
+            </g>
+        </svg></symbol>
+    <symbol id="c"><svg height="30" viewBox="0 0 30 30" width="30" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" fill-rule="evenodd" transform="translate(0 -2)">
+                <circle cx="15" cy="17" fill="#333" r="15" />
+                <path
+                    d="m20.9749998 25h-10.6499995v-1.8249999l3.5749998-3.5249999c3.4499999-3.2999999 4.0249999-4.4999998 4.0249999-6.0749997 0-1.7-1.15-3.0499998-3.2249999-3.0499998-1.4749999 0-2.8499999.6249999-3.6749999 1.2499998l-.5499999-1.92499989c1.2249999-.77499997 2.8249998-1.32499995 4.6249998-1.32499995 3.5499998 0 5.2749998 2.22499994 5.2749998 4.67499984 0 2.1249999-.75 3.7749998-3.9999999 6.7999997l-3.0249999 2.8749999v.025c1.05-.025 2.8749999-.05 5.1499998-.05h2.4749999z"
+                    fill="#fff" fill-rule="nonzero" />
+            </g>
+        </svg></symbol>
+    <symbol id="d"><svg height="30" viewBox="0 0 30 30" width="30" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" fill-rule="evenodd" transform="translate(0 -2)">
+                <circle cx="15" cy="17" fill="#333" r="15" />
+                <path
+                    d="m10.8000002 24.85.25-2.0249999c.9.3 1.95.5 3.0749999.5 2.7249999 0 4.1499998-1.225 4.1499998-2.9999999s-1.3999999-2.8999999-4.0499998-2.8999999c-.9 0-1.5999999.025-2.4499999.125v-1.7999999h.575c3.4999998 0 5.5999998-.95 5.5999998-2.9999999 0-1.475-1.175-2.3749999-3.0749999-2.3749999-1.375 0-2.5499999.375-3.5749999.9249999l-.225-1.97499987c1.175-.47499998 2.5499999-.82499997 4.1999999-.82499997 3.3499998 0 5.0499998 1.67499994 5.0499998 3.89999984 0 1.9249999-1.15 3.2249999-3.0999999 3.7999999l-.025.025c2.0249999.1999999 3.5249999 1.8499999 3.5249999 3.7999998 0 3.1999999-2.6749999 5.2249998-6.8249998 5.2249998-1.1249999 0-2.2749999-.175-3.0999999-.4z"
+                    fill="#fff" fill-rule="nonzero" />
+            </g>
+        </svg></symbol>
+    <symbol id="e"><svg fill="none" height="225" viewBox="0 0 182 225" width="182" xmlns="http://www.w3.org/2000/svg">
+            <path d="m1 56.5h179v-8h-179z" fill="#eee" />
+            <path d="m1 99.5h179v-8h-179z" fill="#eee" />
+            <path d="m1 142.5h179v-8h-179z" fill="#eee" />
+            <path d="m1 185.5h179v-8h-179z" fill="#eee" />
+            <rect height="223" rx="8" stroke="#333" stroke-width="2" width="180" x="1" y="1" />
+            <path d="m1 9h180v207c0 4.418-3.582 8-8 8h-164c-4.41827 0-8-3.582-8-8z" stroke="#333" stroke-width="2" />
+            <path clip-rule="evenodd" d="m39 9.99999v214.00001h-4v-214.00001z" fill="#333" fill-rule="evenodd" />
+            <path clip-rule="evenodd" d="m4.00001 9-.00001 207h-4l.00000905-207z" fill="#333" fill-rule="evenodd" />
+            <path clip-rule="evenodd" d="m74.5 8.00001v215.99999h-3v-215.99999z" fill="#333" fill-rule="evenodd" />
+            <path clip-rule="evenodd" d="m109.954 8.00001v215.99999h-2.204v-215.99999z" fill="#333"
+                fill-rule="evenodd" />
+            <path clip-rule="evenodd" d="m146 10v214h-2v-214z" fill="#333" fill-rule="evenodd" />
+            <path d="m0 9h4v205c0 4.971 2.23858 9 5 9-4.97056 0-9-4.029-9-9z" fill="#333" />
+        </svg></symbol>
+    <symbol id="f"><svg height="30" viewBox="0 0 30 30" width="30" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="m15 28c7.1797017 0 13-5.8202983 13-13 0-7.17970175-5.8202983-13-13-13-7.17970175 0-13 5.82029825-13 13 0 7.1797017 5.82029825 13 13 13zm0-2c-6.07513225 0-11-4.9248678-11-11 0-6.07513225 4.92486775-11 11-11 6.0751322 0 11 4.92486775 11 11 0 6.0751322-4.9248678 11-11 11z"
+                fill="#333" />
+        </svg></symbol>
+    <symbol id="g"><svg height="30" viewBox="0 0 30 30" width="30" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#333" transform="translate(4 4)">
+                <path
+                    d="m-.47850093.76013945 21.53955993 21.53955995c.3905243.3905243 1.0236893.3905243 1.4142136 0 .3905242-.3905243.3905242-1.0236893 0-1.4142136l-21.53955997-21.53955991c-.39052429-.39052429-1.02368927-.39052429-1.41421356 0s-.39052429 1.02368927 0 1.41421356z"
+                    transform="matrix(0 -1 1 0 .175 21.821)" />
+                <path
+                    d="m-.29969937.93571263 21.53955987 21.53955997c.3905243.3905242 1.0236893.3905242 1.4142136 0 .3905243-.3905243.3905243-1.0236893 0-1.4142136l-21.53955991-21.53955993c-.39052429-.39052429-1.02368927-.39052429-1.41421356 0-.3905243.39052429-.3905243 1.02368927 0 1.41421356z" />
+            </g>
+        </svg></symbol>
+    <symbol id="chord"><svg width="326" height="326" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect fill="#fff" height="100%" width="100%" />
+            <use height="225" width="182" x="72" xlink:href="#e" y="56" />
+            <use height="30" width="30" x="21" xlink:href="#a" y="71" />
+            <use height="30" width="30" x="58" xlink:href="#g" y="25" />
+            <use height="30" width="30" x="94" xlink:href="#f" y="25" />
+            <use height="30" width="30" x="130" xlink:href="#b" y="114" />
+            <use height="30" width="30" x="166" xlink:href="#c" y="114" />
+            <use height="30" width="30" x="202" xlink:href="#d" y="114" />
+            <use height="30" width="30" x="238" xlink:href="#f" y="25" />
+        </svg></symbol>
+    <use xlink:href="#chord" />
+</svg>
