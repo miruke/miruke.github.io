@@ -11,31 +11,16 @@
     import { Canvg } from 'https://cdn.skypack.dev/canvg@^4.0.0';
 
     window.onload = async () => {
-      const canvas = document.querySelector('canvas');
-      const ctx = canvas.getContext('2d');
-      const url = "./svg/E_min.svg";
-      const v = await Canvg.from(ctx, url);
-      const w = 300, h = 300;
+      const theme = "dark";
+      const canvas = document.querySelector('canvas'),
+        ctx = canvas.getContext('2d'),
+        url = `./svg/${theme}/E_min.svg`,
+        v = await Canvg.from(ctx, url),
+        w = 300, h = 300;
       v.resize(w, h);
       v.start();
 
-      const scaleImage = (ratio) => {
-        const imageData = ctx.getImageData(0, 0, w, h),
-          newCanvas = $("<canvas>")
-            .attr("width", imageData.width * ratio)
-            .attr("height", imageData.height * ratio)[0];
-        const newCtx = newCanvas.getContext("2d");
-        newCtx.scale(ratio, ratio);
-        newCtx.drawImage(canvas, 0, 0);
-        return newCanvas.toDataURL('image/png');
-      }
-
-      const bImage = scaleImage(0.8),
-        mImage = scaleImage(0.4),
-        sImage = scaleImage(0.2);
-      document.getElementById('chord-img-L').src = bImage;
-      document.getElementById('chord-img-M').src = mImage;
-      document.getElementById('chord-img-S').src = sImage;
+      document.getElementById('chord-img-L').src = canvas.toDataURL('image/png');
 
       window.onbeforeunload = () => {
         v.stop();
@@ -49,8 +34,6 @@
   <canvas class="chord" id="chord"></canvas>
   <div class="chord-images">
     <img id="chord-img-L" class="image-large" />
-    <img id="chord-img-M" class="image-medium" />
-    <img id="chord-img-S" class="image-small" />
   </div>
   <button class="copy-icon" id="copy-button">Copy to Clipboard</button>
   <span id="status-text"></span>
