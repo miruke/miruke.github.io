@@ -29,29 +29,31 @@ $(document).ready(function () {
   });
 
   $("#copy-button").on("click", () => {
-    const chordNode = document.getElementById("chord");
-    $("#status-text").text("Coping to clipboard...");
-    html2canvas(chordNode).then(function (canvas) {
-      canvas.toBlob(function (blob) {
-        navigator.clipboard
-          .write([
-            new ClipboardItem(
-              Object.defineProperty({}, blob.type, {
-                value: blob,
-                enumerable: true,
-              })
-            ),
-          ])
-          .then(
-            function () {
-              $("#status-text").text("Copied to clipboard");
-              console.log("Copied to clipboard");
-            },
-            (e) => {
-              $("#status-text").text(`Error: ${e}`);
-            }
-          );
-      });
+    const status = $("#status-text");
+    status.text("Coping to clipboard...");
+    $("#chord")[0].toBlob((blob) => {
+      navigator.clipboard
+        .write([
+          new ClipboardItem(
+            Object.defineProperty({}, blob.type, {
+              value: blob,
+              enumerable: true,
+            })
+          ),
+        ])
+        .then(
+          () => {
+            status
+              .text("Copied to clipboard")
+              .show()
+              .delay(1000)
+              .fadeOut("slow");
+            console.log("Copied to clipboard");
+          },
+          (e) => {
+            status.text(`Error: ${e}`);
+          }
+        );
     });
   });
 });
