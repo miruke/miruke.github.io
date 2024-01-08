@@ -176,7 +176,7 @@
     
   </defs>
   <symbol id="chord">
-    <svg width="326" height="281" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect width="100%" height="100%" fill="white"/>
+    <svg width="326" height="326" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect width="100%" height="100%" fill="white"/>
       <use x="72" y="56" width="182" height="225" href="#grid-guitar-1" />
       <use x="21" y="71" width="30" height="30" xlink:href="#circle-1-black" />
       <use x="58" y="25" width="30" height="30" xlink:href="#o" />

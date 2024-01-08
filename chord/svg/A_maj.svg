@@ -54,7 +54,7 @@
                     d="m-.29969937.93571263 21.53955987 21.53955997c.3905243.3905242 1.0236893.3905242 1.4142136 0 .3905243-.3905243.3905243-1.0236893 0-1.4142136l-21.53955991-21.53955993c-.39052429-.39052429-1.02368927-.39052429-1.41421356 0-.3905243.39052429-.3905243 1.02368927 0 1.41421356z" />
             </g>
         </svg></symbol>
-    <symbol id="chord"><svg width="326" height="281" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    <symbol id="chord"><svg width="326" height="326" version="1.1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect fill="#fff" height="100%" width="100%" />
             <use height="225" width="182" x="72" xlink:href="#e" y="56" />
