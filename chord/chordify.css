@@ -18,11 +18,8 @@ body {
 }
 
 .chord {
-  /* width: 200px;
-  height: 800px; */
-  /* background-color: #888; */
   color: #ccc;
-  /* font-family: 'Maria', monospace; */
+  display: none;
 }
 
 a {
