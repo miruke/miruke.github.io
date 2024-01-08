@@ -15,14 +15,12 @@
       const ctx = canvas.getContext('2d');
       const url = "./svg/E_min.svg";
       const v = await Canvg.from(ctx, url);
-
-
-      v.resize(400, 400);
+      const w = 300, h = 300;
+      v.resize(w, h);
       v.start();
 
-
       const scaleImage = (ratio) => {
-        const imageData = ctx.getImageData(0, 0, 400, 400),
+        const imageData = ctx.getImageData(0, 0, w, h),
           newCanvas = $("<canvas>")
             .attr("width", imageData.width * ratio)
             .attr("height", imageData.height * ratio)[0];
