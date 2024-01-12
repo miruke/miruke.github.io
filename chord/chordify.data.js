@@ -534,6 +534,9 @@ const Chordify = {
   Chordify.get = (chordName) =>
     Chordify.chords.find((el) => el.name === chordName);
 
+  Chordify.getByEntry = (entryName) =>
+    Chordify.chords.find((el) => el.entry === entryName);
+
   Chordify.getUrl = (chord) => {
     const domain = "https://chordify.net",
       baseUrl = "/api/v2/diagrams/instruments/guitar/chords/",

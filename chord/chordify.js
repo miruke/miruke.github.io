@@ -36,17 +36,19 @@ $(document).ready(function () {
       });
     });
 
-  // for (const chord of Object.entries(Chordify.chords)) {
-
-  // }
   Chordify.chords.forEach((chord, i) => {
     const getAccidental = (name) => {
       const accidental = chord.name.charAt(1) || " ";
       if ("#|b".includes(accidental)) return accidental;
       return " ";
     };
+
+    // When enabled, the links work as SVG download links
+    // Otherwise will change the displayed chord
+    const downloadSvg = false;
+
     const text = chord.display || chord.name,
-      url = Chordify.getUrl(chord),
+      url = downloadSvg ? Chordify.getUrl(chord) : `#${chord.entry}`,
       scale = chord.name.charAt(0),
       accidental = getAccidental(chord.name),
       scaleChange = last.scale !== scale,
@@ -64,6 +66,5 @@ $(document).ready(function () {
               ("#|b".includes(accidental) ? "&nbsp;&nbsp;" : "")
       )
       .append($("<a>").attr("href", url).html(text));
-    console.log(text, last, scaleChange, accidentalChange);
   });
 });

@@ -1,6 +1,6 @@
 import { Canvg } from "https://cdn.skypack.dev/canvg@^4.0.0";
 
-const drawChord = async (chordName, theme) => {
+const drawChord = async (chordName) => {
   let v = window.canvgInst;
   v && v.stop();
 
@@ -10,7 +10,7 @@ const drawChord = async (chordName, theme) => {
 
   const canvas = document.querySelector("canvas"),
     ctx = canvas.getContext("2d"),
-    url = `./svg/${theme}/${encodeURIComponent(entryName)}.svg`,
+    url = `./svg/${window.theme}/${encodeURIComponent(entryName)}.svg`,
     offsetY = 50,
     fontSize = 30,
     bgColor = theme === "dark" ? "black" : "white",
@@ -39,10 +39,19 @@ const drawChord = async (chordName, theme) => {
 
 window.onload = async () => {
   const theme = "dark",
-    chordName = "Ebsus4";
-  drawChord(chordName, theme);
+    chordName = "Em";
+  window.theme = theme;
+  drawChord(chordName);
 };
 
 window.onbeforeunload = () => {
   window.canvgInst.stop();
+};
+
+window.onhashchange = () => {
+  const entry = (window.location.hash || "").replace(/^#/, ""),
+    chord = Chordify.getByEntry(entry);
+  console.log("Going to: ", entry, chord);
+  if (!chord) return;
+  drawChord(chord.name, theme);
 };
