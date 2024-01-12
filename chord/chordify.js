@@ -5,6 +5,21 @@ $(document).ready(function () {
     navigator.userAgent || navigator.vendor || window.opera
   );
 
+  $("button.toggle").on("click", () => {
+    const dark = (window.theme || "dark") === "dark";
+    $(this)
+      .toggleClass("active", dark)
+      .find(".fa-regular")
+      .toggleClass("fa-moon", !dark)
+      .toggleClass("fa-sun", dark);
+    $("body").toggleClass("light", dark);
+
+    window.theme = dark ? "light" : "dark";
+
+    window.onhashchange();
+    console.log("toggle active", $(this));
+  });
+
   $("#copy-button")
     .toggle(!isAppleMobile)
     .on("click", () => {

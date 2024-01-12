@@ -3,7 +3,11 @@
 
 <head>
   <link rel="stylesheet" href="chordify.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+    integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="chordify.data.js"></script>
   <script src="chordify.js"></script>
   <script type="module" src="chordify.draw.js"></script>
@@ -14,6 +18,10 @@
   <div class="chord-images">
     <img id="chord-img-L" class="image-large" />
   </div>
+  <button class="toggle" href="#">
+    <i class="fa-regular fa-moon dark"></i>
+    <i class="fa-regular fa-sun light"></i>
+  </button>
   <button class="copy-icon" id="copy-button">Copy to Clipboard</button>
   <span id="status-text"></span>
   <hr />

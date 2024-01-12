@@ -37,11 +37,11 @@ const drawChord = async (chordName) => {
   img.style.height = h + "px";
 };
 
+const defaultChordName = "Em";
+
 window.onload = async () => {
-  const theme = "dark",
-    chordName = "Em";
-  window.theme = theme;
-  drawChord(chordName);
+  window.theme = "dark";
+  drawChord(defaultChordName);
 };
 
 window.onbeforeunload = () => {
@@ -49,7 +49,8 @@ window.onbeforeunload = () => {
 };
 
 window.onhashchange = () => {
-  const entry = (window.location.hash || "").replace(/^#/, ""),
+  const defaultEntry = Chordify.get(defaultChordName).entry;
+  const entry = (window.location.hash || defaultEntry).replace(/^#/, ""),
     chord = Chordify.getByEntry(entry);
   console.log("Going to: ", entry, chord);
   if (!chord) return;

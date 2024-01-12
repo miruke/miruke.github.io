@@ -1,5 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/maria-2');
-
+@import url("https://fonts.cdnfonts.com/css/maria-2");
 
 @font-face {
   font-family: chordfont;
@@ -7,14 +6,19 @@
   font-style: normal;
   font-display: swap;
   src: url(fonts/TheSans_chord_font.woff2) format("woff2");
-  src: url(fonts/TheSans_chord_font.woff) format("woff")
+  src: url(fonts/TheSans_chord_font.woff) format("woff");
 }
 
 body {
-  background-color: black;
+  background-color: #222;
   padding: 1em;
-  font-family: 'Maria', monospace;
-  color: white;
+  font-family: "Maria", monospace;
+  color: #ccc;
+}
+
+body.light {
+  background-color: #ccc;
+  color: #333;
 }
 
 .chord {
@@ -22,10 +26,93 @@ body {
   display: none;
 }
 
+body.light .chord {
+  color: #333;
+}
+
 a {
-  color: white;
+  color: #ccc;
   font-family: chordfont;
   display: inline-block;
 }
 
+body.light a {
+  color: #333;
+}
+
+button {
+  border-radius: 0.4em;
+  border: 1px solid;
+}
+
+button {
+  border-color: #666;
+  background-color: #222;
+  color: #ccc;
+}
+
+button.toggle .svg-inline--fa.dark {
+  display:none;
+}
+button.toggle .svg-inline--fa.light {
+  display: inline-block;
+}
+
+button.toggle {
+  border-color: #ccc;
+  background-color: #eee;
+  color: #333;
+}
+
+button.toggle:hover,
+button.toggle:active {
+  background-color: #eee;
+  color: #333;
+}
+
+button:hover {
+  background-color: #353535;
+  color: white;
+}
+
+button:active {
+  background-color: #151515;
+  color: #ccc;
+}
+
+body.light button {
+  border-color: #ccc;
+  background-color: #eee;
+  color: #333;
+}
+
+body.light button:hover {
+  background-color: #c5c5c5;
+  color: black;
+}
+
+body.light button:active {
+  background-color: #e5e5e5;
+  color: #333;
+}
+
+body.light button.toggle {
+  border-color: #666;
+  background-color: #222;
+  color: #ccc;
+}
+
+body.light button.toggle:hover,
+body.light button.toggle:active {
+  background-color: #353535;
+  color: white;
+}
+
+body.light button.toggle .svg-inline--fa.light {
+  display:none;
+}
+
+body.light button.toggle .svg-inline--fa.dark {
+  display: inline-block;
+}
 
