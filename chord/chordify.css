@@ -28,18 +28,4 @@ a {
   display: inline-block;
 }
 
-.image-small {
-  width: 60px;
-  height: 60px;
-}
-
-.image-medium {
-  width: 100px;
-  height: 100px;
-}
-
-.image-large {
-  width: 200px;
-  height: 200px;
-}
 

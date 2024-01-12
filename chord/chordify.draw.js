@@ -1,19 +1,42 @@
 import { Canvg } from "https://cdn.skypack.dev/canvg@^4.0.0";
 
-window.onload = async () => {
-  const theme = "dark";
+const drawChord = async (chordName, displayName, theme) => {
+  let v = window.canvgInst;
+  v && v.stop();
+
   const canvas = document.querySelector("canvas"),
     ctx = canvas.getContext("2d"),
-    url = `./svg/${theme}/E_min.svg`,
-    v = await Canvg.from(ctx, url),
+    url = `./svg/${theme}/${chordName}.svg`,
+    offsetY = 50,
+    fontSize = 30,
+    bgColor = theme === "dark" ? "black" : "white",
+    fgColor = theme === "dark" ? "white" : "black",
     w = 300,
-    h = 300;
+    h = 300 + offsetY;
+
+  v = await Canvg.from(ctx, url, { offsetY: offsetY });
+  window.canvgInst = v;
   v.resize(w, h);
   v.start();
 
-  document.getElementById("chord-img-L").src = canvas.toDataURL("image/png");
+  ctx.fillStyle = bgColor;
+  ctx.fillRect(0, 0, w, offsetY);
+  ctx.fillStyle = fgColor;
+  ctx.font = `${fontSize}px Arial`;
+  ctx.textAlign = "center";
+  ctx.fillText(displayName, w / 2, offsetY);
 
-  window.onbeforeunload = () => {
-    v.stop();
-  };
+  const img = document.getElementById("chord-img-L");
+  img.src = canvas.toDataURL("image/png");
+  img.style.width = w + "px";
+  img.style.height = h + "px";
+};
+
+window.onload = async () => {
+  const theme = "dark";
+  drawChord("E_min", "C♯ₘ", "dark");
+};
+
+window.onbeforeunload = () => {
+  window.canvgInst.stop();
 };
