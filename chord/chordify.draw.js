@@ -27,7 +27,7 @@ const drawChord = async (chordName) => {
   ctx.fillStyle = bgColor;
   ctx.fillRect(0, 0, w, offsetY);
   ctx.fillStyle = fgColor;
-  ctx.font = `${fontSize}px Arial`;
+  ctx.font = `${fontSize}px chordfont`;
   ctx.textAlign = "center";
   ctx.fillText(displayName, w / 2, offsetY);
 
