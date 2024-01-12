@@ -1,34 +1,40 @@
 $(document).ready(function () {
   const last = { scale: " ", accidental: " " };
 
-  $("#copy-button").on("click", () => {
-    const status = $("#status-text");
-    status.text("Coping to clipboard...");
-    $("#chord")[0].toBlob((blob) => {
-      navigator.clipboard
-        .write([
-          new ClipboardItem(
-            Object.defineProperty({}, blob.type, {
-              value: blob,
-              enumerable: true,
-            })
-          ),
-        ])
-        .then(
-          () => {
-            status
-              .text("Copied to clipboard")
-              .show()
-              .delay(1000)
-              .fadeOut("slow");
-            console.log("Copied to clipboard");
-          },
-          (e) => {
-            status.text(`Error: ${e}`);
-          }
-        );
+  const isAppleMobile = ((a) => /ip(hone|ad)/i.test(a))(
+    navigator.userAgent || navigator.vendor || window.opera
+  );
+
+  $("#copy-button")
+    .toggle(!isAppleMobile)
+    .on("click", () => {
+      const status = $("#status-text");
+      status.text("Coping to clipboard...");
+      $("#chord")[0].toBlob((blob) => {
+        navigator.clipboard
+          .write([
+            new ClipboardItem(
+              Object.defineProperty({}, blob.type, {
+                value: blob,
+                enumerable: true,
+              })
+            ),
+          ])
+          .then(
+            () => {
+              status
+                .text("Copied to clipboard")
+                .show()
+                .delay(1000)
+                .fadeOut("slow");
+              console.log("Copied to clipboard");
+            },
+            (e) => {
+              status.text(`Error: ${e}`);
+            }
+          );
+      });
     });
-  });
 
   Chordify.chords.forEach((chord, i) => {
     const getAccidental = (name) => {
