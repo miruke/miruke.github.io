@@ -36,6 +36,9 @@ $(document).ready(function () {
       });
     });
 
+  // for (const chord of Object.entries(Chordify.chords)) {
+
+  // }
   Chordify.chords.forEach((chord, i) => {
     const getAccidental = (name) => {
       const accidental = chord.name.charAt(1) || " ";

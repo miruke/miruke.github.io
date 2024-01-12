@@ -38,11 +38,11 @@ const Chordify = {
     },
     {
       name: "C/B",
+      display: "C/B",
       entry: "C%3Amaj%252FB",
     },
 
     {
-      // <span class="chord-label">C♯</span>
       name: "C#",
       display: "C♯",
       entry: "C%23%3Amaj",
@@ -531,14 +531,68 @@ const Chordify = {
 };
 
 (() => {
+  Chordify.get = (chordName) =>
+    Chordify.chords.find((el) => el.name === chordName);
+
   Chordify.getUrl = (chord) => {
     const domain = "https://chordify.net",
       baseUrl = "/api/v2/diagrams/instruments/guitar/chords/",
       tail = "?handedness=right#chord";
-    const c = Chordify.chords.find((el) => el.name === chord.name);
-    console.log(" cp-1");
+    const c = Chordify.get(chord.name);
     if (!c) return;
-    console.log(" cp-2");
     return `${domain}${baseUrl}${chord.entry}${tail}`;
+  };
+
+  const entryMapping = {
+    "%3A": "_",
+    "%23": "#",
+    "&#x2E2;": "/",
+  };
+
+  const replaceEntry = (entry) => {
+    return entryMapping[entry] || entry;
+  };
+
+  const escapeEntry = (str) => {
+    const rx = Object.keys(entryMapping).join("|"),
+      regex = new RegExp(rx, "g");
+    return str.replace(regex, replaceEntry);
+  };
+
+  Chordify.getEntry = (chord) => {
+    if (!chord) return "";
+    return escapeEntry(chord.entry);
+  };
+
+  // B&#x1D50;&#x1D43;&#x2B2;&#x2077;
+  // ♭ᵐᵃʲ⁷
+  // C&#x2E2;&#x1D58;&#x2E2;&#x2074;
+  // ˢᵘˢ⁴
+  const displayMapping = {
+    "&sharp;": "♯",
+    "&#x2098;": "ₘ",
+    "&#x1D50;": "ᵐ",
+    "&#x1D43;": "ᵃ",
+    "&#x2B2;": "ʲ",
+    "&#x2E2;": "ˢ",
+    "&#x1D58;": "ᵘ",
+    "&#x2074;": "⁴",
+    "&#x2077;": "⁷",
+    "&#x2079;": "⁹",
+    "&#x2571;": "╱",
+  };
+  const replaceDisplay = (display) => {
+    return displayMapping[display] || display;
+  };
+
+  const escapeDisplay = (str) => {
+    const rx = Object.keys(displayMapping).join("|"),
+      regex = new RegExp(rx, "g");
+    return str.replace(regex, replaceDisplay);
+  };
+
+  Chordify.getDisplay = (chord) => {
+    if (!chord) return "";
+    return escapeDisplay(chord.display || chord.name);
   };
 })();
