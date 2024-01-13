@@ -110,6 +110,7 @@ body.light a {
 button {
   border-radius: 0.4em;
   border: 1px solid;
+  font: 11px thesans,Arial,sans-serif;
 }
 
 button {
@@ -202,6 +203,10 @@ body.light button.toggle .svg-inline--fa.dark {
   font-size: 15px;
   user-select: none;
 }
+body.light .chord-btn {
+  background-color: #444;
+  color: #cccccc;
+}
 
 a.chord-btn {
   text-decoration: none;
@@ -250,7 +255,7 @@ a.chord-btn {
   display: inline-flex;
   position: absolute;
   box-sizing: content-box;
-  border-left: 1px solid #999;
+  border-left: 1px solid;
 }
 
 .chord-sel.acc:nth-child(1) {
@@ -296,9 +301,9 @@ a.chord-btn {
   justify-content: center;
   align-items: center;
   -webkit-font-smoothing: antialiased;
-  background-color: #222;
   border-left: 0;
   user-select: none;
+  background-color: #222;
 }
 
 .chord-sel:hover {
@@ -306,13 +311,27 @@ a.chord-btn {
 }
 
 .chord-sel.active,
-.chord-sel:active{
+.chord-sel:active {
   background-color: #666;
   color: #fff;
-} 
+}
 
+body.light .chord-sel {
+  background-color: #eee;
+  border-color: #333;
+}
+body.light .chord-sel:hover {
+  background-color: #aaa;
+}
+body.light .chord-sel.active,
+body.light .chord-sel:active {
+  background-color: #888;
+  color: #111;
+}
+
+.chord-sel.acc.left,
 .chord-sel:first-child {
-  border-left: 1px solid;
+  border-left: 1px solid #999;
 }
 .chord-sel.acc.left,
 .chord-sel-group .chord-sel:first-child {
