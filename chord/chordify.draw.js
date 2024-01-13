@@ -1,25 +1,25 @@
 import { Canvg } from "https://cdn.skypack.dev/canvg@^4.0.0";
 
-const drawChord = async (chordName) => {
-  let v = window.canvgInst;
-  v && v.stop();
+const defaultChordName = "Em",
+  getDefaultChord = () => Chordify.getByName(defaultChordName);
 
-  const chord = Chordify.get(chordName),
-    entryName = Chordify.getEntry(chord),
-    displayName = Chordify.getDisplay(chord);
+const drawChord = async (chord) => {
+  window.canvgInst && window.canvgInst.stop();
 
+  chord = chord || getDefaultChord();
   const canvas = document.querySelector("canvas"),
     ctx = canvas.getContext("2d"),
-    url = `./svg/${window.theme}/${encodeURIComponent(entryName)}.svg`,
     offsetY = 50,
     fontSize = 30,
     bgColor = theme === "dark" ? "black" : "white",
     fgColor = theme === "dark" ? "white" : "black",
     w = 300,
-    h = 300 + offsetY;
+    h = 300 + offsetY,
+    { entry, display } = Chordify.escape(chord),
+    url = `./svg/${window.theme}/${entry}.svg`;
 
-  console.log(url);
-  v = await Canvg.from(ctx, url, { offsetY: offsetY });
+  console.log("URL =>", url);
+  const v = await Canvg.from(ctx, url, { offsetY: offsetY });
   window.canvgInst = v;
   v.resize(w, h);
   v.start();
@@ -29,7 +29,7 @@ const drawChord = async (chordName) => {
   ctx.fillStyle = fgColor;
   ctx.font = `${fontSize}px chordfont`;
   ctx.textAlign = "center";
-  ctx.fillText(displayName, w / 2, offsetY);
+  ctx.fillText(display, w / 2, offsetY);
 
   const img = document.getElementById("chord-img-L");
   img.src = canvas.toDataURL("image/png");
@@ -37,11 +37,9 @@ const drawChord = async (chordName) => {
   img.style.height = h + "px";
 };
 
-const defaultChordName = "Em";
-
 window.onload = async () => {
   window.theme = "dark";
-  drawChord(defaultChordName);
+  drawChord();
 };
 
 window.onbeforeunload = () => {
@@ -49,10 +47,9 @@ window.onbeforeunload = () => {
 };
 
 window.onhashchange = () => {
-  const defaultEntry = Chordify.get(defaultChordName).entry;
-  const entry = (window.location.hash || defaultEntry).replace(/^#/, ""),
-    chord = Chordify.getByEntry(entry);
+  const entry = (window.location.hash || "").replace(/^#/, ""),
+    chord = Chordify.getByEntry(entry) || getDefaultChord();
   console.log("Going to: ", entry, chord);
   if (!chord) return;
-  drawChord(chord.name, theme);
+  drawChord(chord);
 };

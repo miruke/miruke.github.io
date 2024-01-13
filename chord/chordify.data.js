@@ -531,7 +531,7 @@ const Chordify = {
 };
 
 (() => {
-  Chordify.get = (chordName) =>
+  Chordify.getByName = (chordName) =>
     Chordify.chords.find((el) => el.name === chordName);
 
   Chordify.getByEntry = (entryName) =>
@@ -548,7 +548,6 @@ const Chordify = {
 
   const entryMapping = {
     "%3A": "_",
-    "%23": "#",
     "&#x2E2;": "/",
   };
 
@@ -560,11 +559,6 @@ const Chordify = {
     const rx = Object.keys(entryMapping).join("|"),
       regex = new RegExp(rx, "g");
     return str.replace(regex, replaceEntry);
-  };
-
-  Chordify.getEntry = (chord) => {
-    if (!chord) return "";
-    return escapeEntry(chord.entry);
   };
 
   // B&#x1D50;&#x1D43;&#x2B2;&#x2077;
@@ -594,8 +588,11 @@ const Chordify = {
     return str.replace(regex, replaceDisplay);
   };
 
-  Chordify.getDisplay = (chord) => {
-    if (!chord) return "";
-    return escapeDisplay(chord.display || chord.name);
+  Chordify.escape = (chord) => {
+    return {
+      name: chord ? chord.name : "",
+      display: chord ? escapeDisplay(chord.display || chord.name) : "",
+      entry: chord ? escapeEntry(chord.entry) : "",
+    };
   };
 })();
