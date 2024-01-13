@@ -295,7 +295,8 @@ a.chord-btn {
   height: 72px;
   border: 1px solid #999;
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: bold;
   vertical-align: middle;
   text-align: center;
   justify-content: center;
@@ -304,6 +305,11 @@ a.chord-btn {
   border-left: 0;
   user-select: none;
   background-color: #222;
+}
+
+.chord-sel.acc {
+  border-color: #999;
+  font-size: 18px;
 }
 
 .chord-sel:hover {
