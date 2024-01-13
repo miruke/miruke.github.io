@@ -9,16 +9,18 @@ const drawChord = async (chord) => {
   chord = chord || getDefaultChord();
   const canvas = document.querySelector("canvas"),
     ctx = canvas.getContext("2d"),
-    offsetY = 50,
-    fontSize = 30,
-    bgColor = theme === "dark" ? "black" : "white",
-    fgColor = theme === "dark" ? "white" : "black",
-    w = 300,
-    h = 300 + offsetY,
+    chordCanvas = $("#chord-canvas"),
+    w = chordCanvas.width(),
+    h = chordCanvas.height(),
+    offsetY = parseInt(chordCanvas.css("padding-top")),
+    font = chordCanvas.css("font"),
+    textAlign = chordCanvas.css("text-align"),
+    bgColor = chordCanvas.css("background-color"),
+    fgColor = chordCanvas.css("color"),
     { entry, display } = Chordify.escape(chord),
     url = `./svg/${window.theme}/${entry}.svg`;
 
-  console.log("URL =>", url);
+  console.log("URL =>", url, w, h, offsetY);
   const v = await Canvg.from(ctx, url, { offsetY: offsetY });
   window.canvgInst = v;
   v.resize(w, h);
@@ -27,14 +29,11 @@ const drawChord = async (chord) => {
   ctx.fillStyle = bgColor;
   ctx.fillRect(0, 0, w, offsetY);
   ctx.fillStyle = fgColor;
-  ctx.font = `${fontSize}px chordfont`;
-  ctx.textAlign = "center";
+  ctx.font = font;
+  ctx.textAlign = textAlign;
   ctx.fillText(display, w / 2, offsetY);
 
-  const img = document.getElementById("chord-img-L");
-  img.src = canvas.toDataURL("image/png");
-  img.style.width = w + "px";
-  img.style.height = h + "px";
+  $("#chord-img").attr("src", canvas.toDataURL("image/png"));
 };
 
 window.onload = async () => {

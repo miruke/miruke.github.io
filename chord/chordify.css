@@ -30,6 +30,37 @@ body.light .chord {
   color: #333;
 }
 
+.image-canvas {
+  width: 300px;
+  height: 350px;
+  padding-top: 50px;
+  font: 30px chordfont;
+  text-align: center;
+  display: none;
+  background-color: #000;
+  color: #fff;
+}
+
+body.light .image-canvas {
+  background-color: #fff;
+  color: #000;
+}
+
+.image-1x {
+  width: 150px;
+  height: 175px;
+}
+
+.image-2x {
+  width: 300px;
+  height: 350px;
+}
+
+.image-4x {
+  width: 600px;
+  height: 700px;
+}
+
 a {
   color: #ccc;
   font-family: chordfont;
