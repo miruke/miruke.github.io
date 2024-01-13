@@ -113,6 +113,14 @@ button {
   font: 11px thesans,Arial,sans-serif;
 }
 
+.status {
+  font: 11px thesans,Arial,sans-serif;
+  position: absolute;
+  z-index: 1;
+  left: 70px;
+  top: 194px;
+}
+
 button {
   border-color: #666;
   background-color: #222;
@@ -190,7 +198,11 @@ body.light button.toggle .svg-inline--fa.dark {
 }
 
 .chord-list {
+  /* background-color: red; */
+  width: 400px;
+  height: 180px;
   display: inline-block;
+  /* display: flex; */
   padding-top: 20px;
 }
 .chord-btn {
@@ -210,8 +222,8 @@ body.light .chord-btn {
 
 a.chord-btn {
   text-decoration: none;
-  margin-right: 1em;
   user-select: none;
+  margin: 4px;
 }
 
 .chord-selector,
