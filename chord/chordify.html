@@ -15,17 +15,50 @@
 
 <body>
   <canvas class="chord" id="chord"></canvas>
-  <div class="chord-images">
-    <img id="chord-img" class="image-1x" />
-    <img id="chord-canvas" class="image-canvas" />
-  </div>
-  <button class="toggle" href="#">
-    <i class="fa-regular fa-moon dark"></i>
-    <i class="fa-regular fa-sun light"></i>
-  </button>
-  <button class="copy-icon" id="copy-button">Copy to Clipboard</button>
-  <span id="status-text"></span>
-  <hr />
+  <div>
+    <div class="left-panel">
+      <div class="chord-images">
+        <img id="chord-img" class="image-1x" />
+        <img id="chord-canvas" class="image-canvas" />
+      </div>
+      <button class="toggle" href="#">
+        <i class="fa-regular fa-moon dark"></i>
+        <i class="fa-regular fa-sun light"></i>
+      </button>
+      <button class="copy-icon" id="copy-button">Copy to Clipboard</button>
+      <span id="status-text"></span>
+    </div>
+    <div class="chord-list" id="chord-list">
+      <!-- <a class="chord-btn">C</a> -->
+    </div>
+    <div class="chord-selector" id="chord-selector">
+      <div class="chord-sel-acc-group">
+        <div class="chord-sel acc left" data-entry="C#">C♯</div>
+        <div class="chord-sel acc right" data-entry="Db">D♭</div>
+        <div class="chord-sel acc left" data-entry="D#">D♯</div>
+        <div class="chord-sel acc right" data-entry="Eb">E♭</div>
+        <div class="chord-sel acc left" data-entry="F#">F♯</div>
+    
+        <div class="chord-sel acc right" data-entry="Gb">G♭</div>
+        <div class="chord-sel acc left" data-entry="G#">G♯</div>
+        <div class="chord-sel acc right" data-entry="Ab">A♭</div>
+        <div class="chord-sel acc left" data-entry="A#">A♯</div>
+        <div class="chord-sel acc right" data-entry="Bb">B♭</div>
+      </div>
+      <div class="chord-sel-group">
+        <div class="chord-sel" data-entry="C">C</div>
+        <div class="chord-sel" data-entry="D">D</div>
+        <div class="chord-sel" data-entry="E">E</div>
+        <div class="chord-sel" data-entry="F">F</div>
+        <div class="chord-sel" data-entry="G">G</div>
+        <div class="chord-sel" data-entry="A">A</div>
+        <div class="chord-sel" data-entry="B">B</div>
+      </div>
+      <div class="chord-sel-small"></div>
+    </div>
+    
+    </div>
+    <!-- <hr /> -->
   <div id="links" class="links"></div>
 </body>
 

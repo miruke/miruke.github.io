@@ -51,7 +51,34 @@ $(document).ready(function () {
       });
     });
 
+  $(".chord-sel").on("click", (e) => {
+    const button = $(e.target),
+      entry = button.attr("data-entry"),
+      chords = Chordify.getByScale(entry),
+      list = $("#chord-list").empty();
+    // Add chord selection button to the list
+    for (const chord of chords) {
+      const { display } = Chordify.escape(chord);
+      list.append(
+        $("<a></a>")
+          .attr({
+            class: "chord-btn",
+            href: `#${chord.entry}`,
+          })
+          .text(display)
+      );
+    }
+    // Select default chord
+    const dbg = list.find(">a:first-child");
+    list.find(">a:first-child")[0].click();
+    console.log(" =>>", entry, dbg);
+    $("#chord-selector").find(".chord-sel").not(button).removeClass("active");
+    button.addClass("active");
+  });
+
+  // Add list for download
   Chordify.chords.forEach((chord, i) => {
+    return;
     const getAccidental = (name) => {
       const accidental = chord.name.charAt(1) || " ";
       if ("#|b".includes(accidental)) return accidental;

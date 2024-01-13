@@ -537,6 +537,15 @@ const Chordify = {
   Chordify.getByEntry = (entryName) =>
     Chordify.chords.find((el) => el.entry === entryName);
 
+  Chordify.getByScale = (scale) => {
+    if (!scale || !scale.length) return;
+    if (scale.length > 1)
+      return Chordify.chords.filter((el) => el.name.startsWith(scale));
+    return Chordify.chords.filter(
+      (el) => el.name.startsWith(scale) && !"#b".includes(el.name.at(1))
+    );
+  };
+
   Chordify.getUrl = (chord) => {
     const domain = "https://chordify.net",
       baseUrl = "/api/v2/diagrams/instruments/guitar/chords/",

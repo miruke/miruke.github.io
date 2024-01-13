@@ -9,6 +9,42 @@
   src: url(fonts/TheSans_chord_font.woff) format("woff");
 }
 
+@font-face {
+  font-family: thesans;
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+  src: url(fonts/TheSansB_300i.eot);
+  src: url(fonts/TheSansB_300i.eot?#iefix) format("embedded-opentype"),url(fonts/TheSansB_300i.woff2) format("woff2"),url(fonts/TheSansB_300i.woff) format("woff"),url(fonts/TheSansB_300i.svg#TheSansB_300i) format("svg")
+}
+
+@font-face {
+  font-family: thesans;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url(fonts/TheSansB_500_.eot);
+  src: url(fonts/TheSansB_500_.eot?#iefix) format("embedded-opentype"),url(fonts/TheSansB_500_.woff2) format("woff2"),url(fonts/TheSansB_500_.woff) format("woff"),url(fonts/TheSansB_500_.svg#TheSansB_500_) format("svg")
+}
+
+@font-face {
+  font-family: thesans;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url(fonts/TheSansB_700_.eot);
+  src: url(fonts/TheSansB_700_.eot?#iefix) format("embedded-opentype"),url(fonts/TheSansB_700_.woff2) format("woff2"),url(fonts/TheSansB_700_.woff) format("woff"),url(fonts/TheSansB_700_.svg#TheSansB_700_) format("svg")
+}
+
+@font-face {
+  font-family: thesans;
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url(fonts/TheSansB_700i.eot);
+  src: url(fonts/TheSansB_700i.eot?#iefix) format("embedded-opentype"),url(fonts/TheSansB_700i.woff2) format("woff2"),url(fonts/TheSansB_700i.woff) format("woff"),url(fonts/TheSansB_700i.svg#TheSansB_700i) format("svg")
+}
+
 body {
   background-color: #222;
   padding: 1em;
@@ -147,3 +183,144 @@ body.light button.toggle .svg-inline--fa.dark {
   display: inline-block;
 }
 
+.left-panel {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.chord-list {
+  display: inline-block;
+  padding-top: 20px;
+}
+.chord-btn {
+  background-color: #999;
+  color: #222;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 15px;
+  user-select: none;
+}
+
+a.chord-btn {
+  text-decoration: none;
+  margin-right: 1em;
+  user-select: none;
+}
+
+.chord-selector,
+.chord-btn {
+  font-family: chordfont;
+  cursor: pointer;
+}
+.chord-selector {
+  padding-top: 20px;
+  display: block;
+  font-size: 0;
+  vertical-align: top;
+  position: relative;
+}
+
+.chord-sel-acc-group {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  left:38px;
+  user-select: none;
+}
+
+.chord-group-left,
+.chord-group-right {
+  display: inline-block;
+  vertical-align: top;
+}
+.chord-sel-group {
+  display: flex;
+  position: relative;
+  top: 16px;
+  vertical-align: top;
+  display: flex;
+  cursor: pointer;
+}
+
+.chord-sel.acc {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  position: absolute;
+  box-sizing: content-box;
+  border-left: 1px solid #999;
+}
+
+.chord-sel.acc:nth-child(1) {
+  left:0;
+}
+.chord-sel.acc:nth-child(2) {
+  left:33px;
+}
+.chord-sel.acc:nth-child(3) {
+  left:72px;
+}
+.chord-sel.acc:nth-child(4) {
+  left:105px;
+}
+.chord-sel.acc:nth-child(5) {
+  left:216px;
+}
+.chord-sel.acc:nth-child(6) {
+  left:249px;
+}
+.chord-sel.acc:nth-child(7) {
+  left:288px;
+}
+.chord-sel.acc:nth-child(8) {
+  left:321px;
+}
+.chord-sel.acc:nth-child(9) {
+  left:360px;
+}
+.chord-sel.acc:nth-child(10) {
+  left:393px;
+}
+
+.chord-sel {
+  display: flex;
+  width: 72px;
+  height: 72px;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  font-size: 18px;
+  vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  background-color: #222;
+  border-left: 0;
+  user-select: none;
+}
+
+.chord-sel:hover {
+  background-color: #333;
+}
+
+.chord-sel.active,
+.chord-sel:active{
+  background-color: #666;
+  color: #fff;
+} 
+
+.chord-sel:first-child {
+  border-left: 1px solid;
+}
+.chord-sel.acc.left,
+.chord-sel-group .chord-sel:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.chord-sel.acc.right,
+.chord-sel-group .chord-sel:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

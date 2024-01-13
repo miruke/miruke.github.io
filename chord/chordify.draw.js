@@ -48,7 +48,7 @@ window.onbeforeunload = () => {
 window.onhashchange = () => {
   const entry = (window.location.hash || "").replace(/^#/, ""),
     chord = Chordify.getByEntry(entry) || getDefaultChord();
-  console.log("Going to: ", entry, chord);
+  console.log("Going to: ", entry, chord, window.location.hash);
   if (!chord) return;
   drawChord(chord);
 };
