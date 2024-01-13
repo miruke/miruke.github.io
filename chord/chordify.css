@@ -361,3 +361,15 @@ body.light .chord-sel:active {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
+.download-toggle.expanded .fa-arrow-down,
+.download-toggle.collapsed .fa-arrow-right
+{
+ display: block;
+}
+
+.download-toggle.collapsed .fa-arrow-down,
+.download-toggle.expanded .fa-arrow-right
+{
+ display: none;
+}

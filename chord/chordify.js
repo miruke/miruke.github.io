@@ -76,21 +76,26 @@ $(document).ready(function () {
     button.addClass("active");
   });
 
+  const downloadToggle = $("#download-toggle");
+  downloadToggle.on("click", () => {
+    const expanded = downloadToggle.hasClass("expanded");
+    downloadToggle
+      .toggleClass("expanded", !expanded)
+      .toggleClass("collapsed", expanded);
+    $("#links").toggle(!expanded, 2000);
+  });
+
+  $("#links").toggle(downloadToggle.hasClass("expanded"));
   // Add list for download
   Chordify.chords.forEach((chord, i) => {
-    return;
     const getAccidental = (name) => {
       const accidental = chord.name.charAt(1) || " ";
       if ("#|b".includes(accidental)) return accidental;
       return " ";
     };
 
-    // When enabled, the links work as SVG download links
-    // Otherwise will change the displayed chord
-    const downloadSvg = false;
-
     const text = chord.display || chord.name,
-      url = downloadSvg ? Chordify.getUrl(chord) : `#${chord.entry}`,
+      url = Chordify.getUrl(chord),
       scale = chord.name.charAt(0),
       accidental = getAccidental(chord.name),
       scaleChange = last.scale !== scale,

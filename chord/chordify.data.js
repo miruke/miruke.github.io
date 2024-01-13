@@ -550,7 +550,7 @@ const Chordify = {
     const domain = "https://chordify.net",
       baseUrl = "/api/v2/diagrams/instruments/guitar/chords/",
       tail = "?handedness=right#chord";
-    const c = Chordify.get(chord.name);
+    const c = Chordify.getByName(chord.name);
     if (!c) return;
     return `${domain}${baseUrl}${chord.entry}${tail}`;
   };
